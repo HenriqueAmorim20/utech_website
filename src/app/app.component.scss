@@ -1,0 +1,31 @@
+:host {
+  display: flex;
+  flex: 1;
+}
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+  position: inherit;
+}
+
+.full-width {
+  width: 100%;
+}
+
+#container {
+  align-items: top;
+  display: flex;
+}
+
+.window {
+  min-width: 965px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
