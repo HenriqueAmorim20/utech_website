@@ -3,13 +3,20 @@
     <button class="backnext" (click)="cImage()">
       <mat-icon>keyboard_arrow_left</mat-icon>
     </button>
-    <img src="/assets/slide/{{images[i]}}.png" style="visibility: hidden; width: 95%;" />
+    <img src="/assets/slide/{{images[i]}}.png" style="visibility: hidden; width: 94.5%;" />
     <button class="backnext" (click)="cImage('next')">
       <mat-icon>keyboard_arrow_right</mat-icon>
     </button>
   </div>
 
-  <div>
-    <h1>Conteudo</h1>
+  <div class="content">
+    <div>
+      <h2>Recomendados para você!</h2>
+      <div class="border"></div>
+    </div>
+    <div>
+      <h2>Novidades da loja!</h2>
+      <div class="border"></div>
+    </div>
   </div>
 </div>

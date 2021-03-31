@@ -21,3 +21,25 @@ button:focus{
   flex-direction: row;
   background-size: cover;
 }
+
+.content {
+  margin-left: 50px;
+  margin-right: 50px;
+  background-color: #edededbb;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+h2 {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.border {
+  width: 25px;
+  height: 5px;
+  margin-top: -20px;
+  margin-left: 5px;
+  background-color: black;
+}
