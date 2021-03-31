@@ -1,0 +1,23 @@
+.backnext {
+  cursor: pointer;
+  background-color: transparent;
+  border-color: transparent;
+}
+.backnext:hover {
+  background-color: #8d8d8d48;
+}
+
+button:focus{
+  outline: none;
+}
+
+.flexExpand {
+  flex: 2 1 auto;
+}
+
+.images {
+  transition: background-image 1s ease-in-out;
+  display: flex;
+  flex-direction: row;
+  background-size: cover;
+}

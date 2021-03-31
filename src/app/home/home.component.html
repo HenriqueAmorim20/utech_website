@@ -1,2 +1,15 @@
-<br>
-<h1>home works!</h1>
+<div>
+  <div class="images" style="background-image: url('../../assets/slide/{{images[i]}}.png');">
+    <button class="backnext" (click)="cImage()">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <img src="/assets/slide/{{images[i]}}.png" style="visibility: hidden; width: 95%;" />
+    <button class="backnext" (click)="cImage('next')">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+  </div>
+
+  <div>
+    <h1>Conteudo</h1>
+  </div>
+</div>
