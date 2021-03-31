@@ -1,0 +1,41 @@
+
+.navbar {
+  background-color: black;
+  height: 70px;
+  position: relative;
+  top: 0;
+  min-width: 955px;
+  width: 100%;
+}
+
+.flexExpand {
+  flex: 2 1 auto;
+}
+
+.menuItem {
+  cursor: pointer;
+  display: flex;
+  margin-left: 20px;
+  font-size: 13px;
+  color: #e9e9e6;
+}
+
+.menuItem:hover {
+  background: -webkit-linear-gradient(#79c4ec, #eb48ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.partner{
+  border-right: 1px solid #ccc;
+  padding-right: 20px;
+}
+
+.logo {
+  width: 200px;
+  margin: 20px;
+}
+
+.icons {
+  margin-right: 10px;
+}

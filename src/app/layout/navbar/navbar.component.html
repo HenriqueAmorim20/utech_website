@@ -1,10 +1,28 @@
-<mat-toolbar class="mat-elevation-z6 navbar">
+<mat-toolbar class="mat-elevation-z6 navbar" style="min-width: 960px;" >
   <div>
-    <span>
-      teste
+    <span fxShow fxFlexAlign="center">
+      <img src="assets/logos/default.png" class="logo" />
     </span>
-    <span>
-      teste
-    </span>
+  </div>
+  <div class="menuItem partner">
+    <mat-icon class="icons" >home</mat-icon>
+    <span>HOME</span>
+  </div>
+  <div class="menuItem partner">
+    <mat-icon class="icons">store</mat-icon>
+    <span>PRODUTOS</span>
+  </div>
+  <div class="menuItem">
+    <mat-icon class="icons">information</mat-icon>
+    <span>SOBRE NÓS</span>
+  </div>
+  <span class="flexExpand"></span>
+  <div class="menuItem partner">
+    <mat-icon class="icons">account_circle</mat-icon>
+    <span>CONTA</span>
+  </div>
+  <div class="menuItem">
+    <mat-icon class="icons">shopping_cart</mat-icon>
+    <span>CARRINHO ({{cartCount}})</span>
   </div>
 </mat-toolbar>
