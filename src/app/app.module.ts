@@ -7,14 +7,24 @@ import { LayoutModule } from './layout/layout.module';
 import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './pages/about/about.component';
+import { CartComponent } from './pages/cart/cart.component';
+import { ProductsComponent } from './pages/products/products.component';
+import { AccountComponent } from './pages/account/account.component';
+import { SharedModule } from './@shared/shared.module'
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    AboutComponent,
+    CartComponent,
+    ProductsComponent,
+    AccountComponent
   ],
   imports: [
+    SharedModule,
     MaterialModule,
     LayoutModule,
     BrowserModule,

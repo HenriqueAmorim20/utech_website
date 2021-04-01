@@ -1,0 +1,89 @@
+
+.cardImage {
+  width: 100%;
+}
+.card {
+  border-radius: 10px;
+  box-shadow: 1.5px 1.5px 1.5px 0.5px rgba(0, 0, 0, 0.205);
+  margin: 30px;
+  max-width: 250px;
+  min-width: 250px;
+  min-height: 510px;
+  max-height: 510px;
+}
+
+.cardText {
+  cursor: pointer;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 20px;
+}
+
+.cardTitle {
+  font-size: 18px;
+}
+
+.cardTitle:hover {
+  text-decoration: underline;
+}
+
+.price {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}
+
+.raise:hover,
+.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
+
+$colors: (
+  raise: black,
+);
+
+@each $button, $color in $colors {
+  .#{$button} {
+    --color: #{$color};
+    --hover: #{adjust-hue($color, 45deg)};
+  }
+}
+
+button {
+  color: var(--color);
+  transition: 0.25s;
+
+  &:hover,
+  &:focus {
+    border-color: #3288af;
+    color: #3288af;
+  }
+}
+
+button {
+  position: absolute;
+  bottom: 0;
+  cursor: pointer;
+  outline: none;
+  background: none;
+  border: 0.8px solid;
+  border-radius: 10px;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.btnContent{
+  display: flex;
+  justify-content: center;
+}
+
+
+

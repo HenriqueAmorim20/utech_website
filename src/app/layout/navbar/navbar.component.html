@@ -1,28 +1,51 @@
 <mat-toolbar class="mat-elevation-z6 navbar" style="min-width: 960px;" >
+
   <div>
     <span fxShow fxFlexAlign="center">
-      <img src="assets/logos/default.png" class="logo" />
+      <img src="assets/logos/default2.png" class="logo" />
     </span>
   </div>
-  <div class="menuItem partner">
-    <mat-icon class="icons" >home</mat-icon>
-    <span>HOME</span>
+
+  <div style="display: flex; flex-direction: column;margin-left: 20px; height: 100%;justify-content: center;">
+    <div class="menuItem " (click)="navigate('home')">
+      <mat-icon class="icons" >home</mat-icon>
+      <span>HOME</span>
+    </div>
+    <div *ngIf="getCurrentPage('home')" class="border"></div>
   </div>
-  <div class="menuItem partner">
-    <mat-icon class="icons">store</mat-icon>
-    <span>PRODUTOS</span>
+
+  <div style="display: flex; flex-direction: column;margin-left: 20px;">
+    <div class="menuItem " (click)="navigate('products')">
+      <mat-icon class="icons" >store</mat-icon>
+      <span>PRODUTOS</span>
+    </div>
+    <div *ngIf="getCurrentPage('products')" class="border"></div>
   </div>
-  <div class="menuItem">
-    <mat-icon class="icons">information</mat-icon>
-    <span>SOBRE NÓS</span>
+
+  <div style="display: flex; flex-direction: column;margin-left: 20px;">
+    <div class="menuItem " (click)="navigate('about')">
+      <mat-icon class="icons" >information</mat-icon>
+      <span>SOBRE</span>
+    </div>
+    <div *ngIf="getCurrentPage('about')" class="border"></div>
   </div>
+
   <span class="flexExpand"></span>
-  <div class="menuItem partner">
-    <mat-icon class="icons">account_circle</mat-icon>
-    <span>CONTA</span>
+
+  <div style="display: flex; flex-direction: column;margin-left: 20px;">
+    <div class="menuItem " (click)="navigate('account')">
+      <mat-icon class="icons" >account_circle</mat-icon>
+      <span>CONTA</span>
+    </div>
+    <div *ngIf="getCurrentPage('account')" class="border"></div>
   </div>
-  <div class="menuItem">
-    <mat-icon class="icons">shopping_cart</mat-icon>
-    <span>CARRINHO ({{cartCount}})</span>
+
+  <div style="display: flex; flex-direction: column;margin-left: 20px;">
+    <div class="menuItem " (click)="navigate('cart')">
+      <mat-icon class="icons" >shopping_cart</mat-icon>
+      <span>CARRINHO</span>
+    </div>
+    <div *ngIf="getCurrentPage('cart')" class="border"></div>
   </div>
+
 </mat-toolbar>

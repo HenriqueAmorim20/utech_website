@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
   cartCount: number = 0;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  navigate(value: any){
+    this.router.navigate([value])
+  }
+
+  getCurrentPage(value: any){
+    return localStorage.getItem("currentPage") === value
+  }
 }

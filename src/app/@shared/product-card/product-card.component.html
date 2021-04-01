@@ -1,0 +1,19 @@
+<mat-card class="card">
+  <img class="cardImage"src="/assets/products/{{ product.imgSrc }}"><img>
+  <div  class="cardText" (click)="navigate()">
+    <mat-card-title>
+      <span class="cardTitle">{{ product.title }}</span>
+    </mat-card-title>
+    <span class="price">R$ {{ product.price }}</span>
+    <span> à vista</span>
+  </div>
+
+  <div class="actions">
+    <button class="raise" (click)="addCart()">
+      <div class="btnContent">
+        <mat-icon>shopping_cart</mat-icon>
+        <span style="margin-top: 5px;">Adicionar</span>
+      </div>
+    </button>
+  </div>
+</mat-card>

@@ -10,13 +10,28 @@
   </div>
 
   <div class="content">
-    <div>
+    <div style="margin-bottom: 30px;">
       <h2>Recomendados para você!</h2>
       <div class="border"></div>
+    </div>
+    <div style="display: flex;">
+      <div *ngFor="let product of recommended">
+        <app-product-card [product] = "product"></app-product-card>
+      </div>
     </div>
     <div>
       <h2>Novidades da loja!</h2>
       <div class="border"></div>
+    </div>
+    <div style="display: flex;">
+      <div *ngFor="let product of news_1">
+        <app-product-card [product] = "product"></app-product-card>
+      </div>
+    </div>
+    <div style="display: flex;">
+      <div *ngFor="let product of news_2">
+        <app-product-card [product] = "product"></app-product-card>
+      </div>
     </div>
   </div>
 </div>
