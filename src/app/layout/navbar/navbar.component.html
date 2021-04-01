@@ -1,4 +1,4 @@
-<mat-toolbar class="mat-elevation-z6 navbar" style="min-width: 960px;" >
+<mat-toolbar class="navbar" style="min-width: 960px;" >
 
   <div>
     <span fxShow fxFlexAlign="center">
@@ -25,7 +25,7 @@
   <div style="display: flex; flex-direction: column;margin-left: 20px;">
     <div class="menuItem " (click)="navigate('about')">
       <mat-icon class="icons" >information</mat-icon>
-      <span>SOBRE</span>
+      <span>INFO</span>
     </div>
     <div *ngIf="getCurrentPage('about')" class="border"></div>
   </div>
