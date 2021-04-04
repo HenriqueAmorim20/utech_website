@@ -8,10 +8,17 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   cartCount: number = 0;
+  changeScreen: boolean = false;
+
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    setInterval(()=>{
+      if(window.innerWidth < 880)
+        this.changeScreen = true
+      else this.changeScreen = false
+    }, 100)
   }
 
   navigate(value: any){

@@ -1,0 +1,76 @@
+.content {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-color: white;
+  margin: 30px;
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+}
+
+.login {
+  border-radius: 10px;
+  padding: 30px;
+  background-color: #edededbb;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.register {
+  background-color: #edededbb;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  // padding: 25px;
+  // margin: 30px;
+}
+
+.raise:hover,
+.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
+
+$colors: (
+  raise: black,
+);
+
+@each $button, $color in $colors {
+  .#{$button} {
+    --color: #{$color};
+    --hover: #{adjust-hue($color, 45deg)};
+  }
+}
+
+button {
+  color: var(--color);
+  transition: 0.25s;
+
+  &:hover,
+  &:focus {
+    border-color: #3288af;
+    color: #3288af;
+  }
+}
+
+button {
+  bottom: 0;
+  cursor: pointer;
+  outline: none;
+  background: none;
+  border: 0.8px solid;
+  border-radius: 10px;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 150px;
+}

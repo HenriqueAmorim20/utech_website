@@ -1,1 +1,28 @@
-<p>account works!</p>
+<div style="background-color: #edededbb; margin-top: 90px;">
+  <div class="content">
+    <div class="register">
+      AA
+    </div>
+    <div class="login">
+      <h1>Já possui uma conta?</h1>
+      <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <mat-label>Digite seu email</mat-label>
+          <input matInput formControlName="email" placeholder="exemplo@gmail.com" [formControl]="email" required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Digite sua senha</mat-label>
+          <input matInput formControlName="password" placeholder="senha" required>
+        </mat-form-field>
+        <span>
+          <a style="font-size: 13px;" href="">Esqueceu a senha?</a>
+        </span>
+        <button type="submit">
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+
+</div>

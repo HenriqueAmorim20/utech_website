@@ -1,14 +1,11 @@
-.backnext {
+.sideButtons {
   cursor: pointer;
   background-color: transparent;
   border-color: transparent;
+  min-height: 100%;
 }
-.backnext:hover {
+.sideButtons:hover {
   background-color: #8d8d8d48;
-}
-
-button:focus{
-  outline: none;
 }
 
 .flexExpand {
@@ -17,14 +14,14 @@ button:focus{
 
 .images {
   transition: background-image 1s ease-in-out;
-  display: flex;
-  flex-direction: row;
+  display: inline-flex;
+  width: 100%;
   background-size: cover;
 }
 
 .content {
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
   background-color: #edededbb;
   padding: 20px;
   margin-top: 20px;
@@ -34,6 +31,7 @@ button:focus{
 
 h2 {
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  // margin-bottom: 30px;
 }
 
 .border {
@@ -43,3 +41,7 @@ h2 {
   margin-left: 5px;
   background-color: black;
 }
+ .card {
+   margin: auto;
+   margin-top: 20px;
+ }

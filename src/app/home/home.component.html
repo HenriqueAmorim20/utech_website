@@ -1,12 +1,12 @@
-<div>
+<div style="margin-top: 70px;">
   <div class="images" style="background-image: url('../../assets/slide/{{images[i]}}.png');">
-    <button class="backnext" (click)="cImage()">
+    <div class="sideButtons" (click)="cImage()">
       <mat-icon>keyboard_arrow_left</mat-icon>
-    </button>
-    <img src="/assets/slide/{{images[i]}}.png" style="visibility: hidden; width: 94.5%;" />
-    <button class="backnext" (click)="cImage('next')">
+    </div>
+    <img src="/assets/slide/{{images[i]}}.png" style="visibility: hidden; width: 100%; overflow: hidden;" />
+    <div class="sideButtons" (click)="cImage('next')">
       <mat-icon>keyboard_arrow_right</mat-icon>
-    </button>
+    </div>
   </div>
 
   <div class="content">
@@ -14,8 +14,8 @@
       <h2>Recomendados para você!</h2>
       <div class="border"></div>
     </div>
-    <div style="display: flex;">
-      <div *ngFor="let product of recommended">
+    <div style="display: flex; flex-flow: row wrap;">
+      <div class="card" *ngFor="let product of recommended">
         <app-product-card [product] = "product"></app-product-card>
       </div>
     </div>
@@ -25,13 +25,8 @@
       <h2>Novidades da loja!</h2>
       <div class="border"></div>
     </div>
-    <div style="display: flex;">
-      <div *ngFor="let product of news_1">
-        <app-product-card [product] = "product"></app-product-card>
-      </div>
-    </div>
-    <div style="display: flex;">
-      <div *ngFor="let product of news_2">
+    <div style="display: flex; flex-flow: row wrap;">
+      <div  class="card" *ngFor="let product of news">
         <app-product-card [product] = "product"></app-product-card>
       </div>
     </div>

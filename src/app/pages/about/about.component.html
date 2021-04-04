@@ -1,37 +1,96 @@
-<mat-tab-group>
+<mat-tab-group style="background-color: #edededbb; margin-top: 70px;">
   <mat-tab label="CONTATO">
     <div class="content">
       <h1>Entre em contato</h1>
-      <form class="form">
+      <p>Deixe aqui sua sugestão ou sua dúvida</p>
+      <form class="form" [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
         <mat-form-field>
           <mat-label>Digite seu nome</mat-label>
-          <input matInput placeholder="José da Silva Ferreira" required>
+          <input matInput formControlName="name" placeholder="José da Silva Ferreira" required>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Digite seu email</mat-label>
-          <input matInput placeholder="exemplo@gmail.com" [formControl]="email" required>
+          <input matInput formControlName="email" placeholder="exemplo@gmail.com" [formControl]="email" required>
           <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Assunto</mat-label>
-          <input matInput placeholder="Como comprar produtos" required>
+          <input matInput formControlName="subject" placeholder="Como comprar produtos" required>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Mensagem</mat-label>
-          <textarea matInput placeholder="Descreva sua dúvida/sugestão" cdkTextareaAutosize cdkAutosizeMinRows="4" cdkAutosizeMaxRows="10" required></textarea>
+          <textarea matInput formControlName="message" placeholder="Descreva sua dúvida/sugestão" cdkTextareaAutosize cdkAutosizeMinRows="4" cdkAutosizeMaxRows="10" required></textarea>
         </mat-form-field>
-        <button class="submit" type="submit">
+        <button type="submit">
           ENVIAR
         </button>
       </form>
 
     </div>
   </mat-tab>
-  <mat-tab label="SOBRE A UTECH"> Content 2 </mat-tab>
+  <mat-tab label="SOBRE">
+    <div class="content" style="background-image: url('../../../assets/about.jpg'); background-repeat: no-repeat; background-size: cover; ">
+      <h1>SOBRE A UTECH</h1>
+      <span>
+        <p style="margin-left: 30px; margin-right: 30px;"> A Go Imports está no mercado há mais de 5 anos garantindo preço justo e qualidade através de anunciantes de smartphones, notebooks, computadores, HDs, SSDs e acessórios. Produtos originais da linha Apple, Xiaomi, Samsung, JBL e muito mais! Somos reconhecidos e atestados no mercado por grandes canais e criadores de conteúdo do mundo de eletrônico e tecnologia como Loop Infinito, Escolha Segura, Fora da Caixa e Ei Nerd.        </p>
+      </span>
+      <span>
+        <p style="margin-left: 30px; margin-right: 30px;"> Para mais informações acesse nosso site ou fale com nossos consultores de vendas pelo Whatsapp, eles vão te direcionar ao melhor produto dos nossos melhores anunciantes. Boas compras!</p>
+      </span>
+    </div>
+  </mat-tab>
   <mat-tab label="POLÍTICA DE PRIVACIDADE">
     <div class="content">
       <h1>POLÍTICA DE PRIVACIDADE</h1>
-      <span> teste</span>
+      <span>
+        <pre style="margin-left: 30px; margin-right: 30px;">POLÍTICA DE PRIVACIDADE E TRATAMENTO DE DADOS</pre>
+      </span>
+      <span>
+        <pre style="margin-left: 30px; margin-right: 30px;">
+          I - INTRODUÇÃO
+          II - DEFINIÇÕES IMPORTANTES <br>
+          III - QUAIS TIPOS DE INFORMAÇÕES COLETAMOS? <br>
+          IV - COMO USAMOS ESSAS INFORMAÇÕES? <br>
+          V - COMO ESSAS INFORMAÇÕES SÃO COMPARTILHADAS? <br>
+          VI - SENHA PESSOAL <br>
+          VII - A GO IMPORTS TRANSFERE OS DADOS PARA OUTROS PAÍSES? VIII - COMO PROTEGEMOS SUAS INFORMAÇÕES? <br>
+          IX - POR QUANTO TEMPO AS INFORMAÇÕES SÃO ARMAZENADAS? <br>
+          X - CRIANÇAS <br>
+          XI - QUAIS SÃO SEUS DIREITOS COM RELAÇÃO AOS SEUS DADOS PESSOAIS? <br>
+          XII - COMO NOTIFICAREMOS VOCÊ SOBRE MUDANÇAS NESTA POLÍTICA? <br>
+          XIII - COMO ENTRAR EM CONTATO COM A GO IMPORTS EM CASO DE DÚVIDAS? <br>
+        </pre>
+      </span>
+      <span>
+        <pre style="margin-left: 30px; margin-right: 30px;">
+          I – INTRODUÇÃO
+          Obrigado por escolher a Go Imports!
+          Na Go Imports, pretendemos proporcionar ao usuário a melhor experiência possível para garantirmos que desfruta do nosso serviço hoje, amanhã e no futuro.
+          A privacidade e a segurança dos dados pessoais do usuário são, agora e sempre, de enorme importância para nós. Por esse motivo, queremos explicar de forma transparente de que forma recolhemos, armazenamos, partilhamos e utilizamos os dados pessoais do usuário.
+          É este o nosso objetivo e a presente Política de Privacidade ("Política") vai explicar exatamente o que pretendemos de forma mais detalhada. Ao se cadastrar na Go Imports, o Utilizador garante de forma expressa que é plenamente capaz, nos termos da legislação vigente, para exercer e gozar
+          de todos os Serviços.
+        </pre>
+      </span>
+      <span>
+        <pre style="margin-left: 30px; margin-right: 30px;">
+          II - DEFINIÇÕES IMPORTANTES:
+          BANCO DE DADOS: Conjunto estruturado de dados pessoais ou anônimizados, localizado em um ou em vários locais, em suporte eletrônico ou físico;
+          CONSENTIMENTO: É a manifestação livre, informada e inequívoca pela qual o USUÁRIO concorda com a utilização dos seus dados pessoais ou anônimizados.
+          CONTEÚDO: Qualquer informação, dados, comunicações, software, fotos, vídeos, gráficos, música, sons e outros materiais e serviços que podem ser visualizados pelos USUÁRIOS na PLATAFORMA. Isso inclui mensagens, conversas, bate-papo e outros conteúdos originais.
+          COOKIES: Cookies são pequenos arquivos de texto contendo uma cadeia de caracteres que podem ser armazenados em seu computador ou dispositivo móvel e identificam seu navegador ou dispositivo de modo exclusivo. Podemos usar tecnologias como cookies, pixels e armazenamento local para transmitir, proteger e entender produtos, serviços e anúncios.
+          DADOS PESSOAIS: todos os dados relacionados à pessoa natural (identificada ou identificável), não-públicos, relativos à identidade e à vida privada de seu TITULAR.
+          DADOS PESSOAIS ANÔNIMIZADOS ou ANÔNIMIZADOS: dados relativos a um TITULAR que não possa ser identificado.
+          IP (Internet Protocol): É um conjunto de números que identifica o computador do USUÁRIO na Internet.
+          JANELAS (Pop-Ups): Janela ou aviso da internet que emerge automaticamente em qualquer momento quando a PLATAFORMA é utilizada, inclusive na formalização dos Termos e Condições do Uso da Plataforma e na Política de Privacidade.
+          LOGS: registros de atividades do USUÁRIO efetuadas na PLATAFORMA.
+          GO IMPORTS: é a empresa proprietária e possuidora de todos os direitos autorais referente a Plataforma de anúncios denominada www.goimports.com.br “GO IMPORTS”.
+          MENSAGENS DE DADOS: A informação gerada, enviada, recebida, armazenada ou comunicada por meios eletrônicos, óticos ou similares. Exemplificando: os formulários de cadastramento, o Intercâmbio Eletrônico de Dados (EDI – Electronic Data Interchange), Internet, o correio eletrônico, chats entre outros meios de comunicação.
+          PLATAFORMA GO IMPORTS: É onde a Go Imports presta um serviço consistente na oferta de uma plataforma na internet que fornece espaços para que “Usuários anunciantes/potenciais vendedores” anunciem, os seus próprios produtos e serviços para que eventuais interessados na compra dos itens, os “Usuários compradores/potenciais compradores”, possam negociar direta e exclusivamente entre si. Os serviços oferecidos pela Go Imports consistem em (i) ofertar e hospedagem de espaços no Site para que os Usuários anunciem à venda de seus próprios produtos e/ou serviços e (ii) viabilizar o contato direto entre Usuários vendedores e Usuários interessados em adquirir os produtos e serviços anunciados, por meio da divulgação dos dados de contato de uma parte à outra. A Go Imports, portanto, possibilita aos Usuários se contatarem e negociarem entre si diretamente, sem qualquer intervenção da Go Imports, na negociação ou na concretização dos negócios. Desta forma, ressalta-se que a Go Imports não fornece quaisquer produtos ou serviços anunciados pelos Usuários nos Sites.
+          SESSION ID: identificação da sessão do USUÁRIO no processo de inscrição ou quando utilizado de alguma forma na PLATAFORMA.
+          TERMOS E CONDIÇÕES DE USO DA PLATAFORMA ou TERMOS DE USO: Constituem os termos legais que regulamentam a relação entre a Go Imports e os USUÁRIOS.
+          USUÁRIO DA PLATAFORMA GO IMPORTS: são as pessoas físicas ou jurídicas cadastradas na Plataforma de Internet denominada Go Imports também denominados “USUÁRIO”, “USUÁRIOS”, “UTILIZADOR”, “USUÁRIO COMPRADOR” ou “USUÁRIO VENDEDOR”. A Go Imports e os USUÁRIOS poderão ser mencionados individualmente neste Instrumento como “Parte” ou em conjunto como “Partes”.
+          </pre>
+      </span>
     </div>
   </mat-tab>
 </mat-tab-group>

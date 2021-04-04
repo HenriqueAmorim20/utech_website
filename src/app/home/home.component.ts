@@ -36,7 +36,31 @@ export class HomeComponent implements OnInit {
     }
   ]
 
-  news_1: any = [
+  news: any = [
+    {
+      title: 'iPad Pro (2020) 11" 2ª Geração Cinza-Espacial 128GB Wi-Fi',
+      price: "6.999,00",
+      imgSrc: "ipadpro.png",
+      id: "1",
+    },
+    {
+      title: 'Macbook Air 13" (2020) Cinza-Espacial / Processador M1 / 8GB / 256GB SSD',
+      price: "9.099,00",
+      imgSrc: "macbookair.png",
+      id: "2",
+    },
+    {
+      title: 'MacBook Pro 13” (2020) Space Gray Touch Bar/ID - Processador M1 / 8GB / 256GB SSD',
+      price: "11.099,00",
+      imgSrc: "macbookpro.png",
+      id: "3",
+    },
+    {
+      title: "iPad 8˚Geração Cinza espacial 128GB Wifi",
+      price: "3599,00",
+      imgSrc: "ipad.png",
+      id: "4",
+    },
     {
       title: 'iPad Pro (2020) 11" 2ª Geração Cinza-Espacial 128GB Wi-Fi',
       price: "6.999,00",
@@ -62,43 +86,25 @@ export class HomeComponent implements OnInit {
       id: "4",
     }
   ]
+  timer: any;
 
-  news_2: any = [
-    {
-      title: 'iPad Pro (2020) 11" 2ª Geração Cinza-Espacial 128GB Wi-Fi',
-      price: "6.999,00",
-      imgSrc: "ipadpro.png",
-      id: "1",
-    },
-    {
-      title: 'Macbook Air 13" (2020) Cinza-Espacial / Processador M1 / 8GB / 256GB SSD',
-      price: "9.099,00",
-      imgSrc: "macbookair.png",
-      id: "2",
-    },
-    {
-      title: 'MacBook Pro 13” (2020) Space Gray Touch Bar/ID - Processador M1 / 8GB / 256GB SSD',
-      price: "11.099,00",
-      imgSrc: "macbookpro.png",
-      id: "3",
-    },
-    {
-      title: "iPad 8˚Geração Cinza espacial 128GB Wifi",
-      price: "3599,00",
-      imgSrc: "ipad.png",
-      id: "4",
-    }
-  ]
   constructor() { }
 
   ngOnInit() {
     localStorage.setItem("currentPage", "home")
-    setInterval(() =>{
+    this.startTimer()
+  }
+
+  startTimer(){
+    this.timer = setInterval(() =>{
       this.cImage('next')
-    },12000)
+    },5000)
   }
 
   cImage(value?: string){
+    clearInterval(this.timer)
+    this.startTimer();
+    // console.log('change', this.timer)
     if(value==='next'){
       if(this.i<this.images.length - 1) this.i+=1
       else this.i = 0

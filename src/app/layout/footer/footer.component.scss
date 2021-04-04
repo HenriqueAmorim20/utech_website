@@ -1,11 +1,10 @@
 .footer {
   display: flex;
+  flex-flow: row wrap;
   background-color: #3288af;
   color: white;
-  position: relative;
-  bottom: 0;
+  position: absolute;
   width: 100%;
-  min-width: 955px;
 }
 
 .flexExpand {
@@ -13,6 +12,14 @@
 }
 
 .media {
+  margin-left: 20px;
   display: flex;
   align-items: center;
+  font-size: 15px;
+}
+
+.image {
+  cursor: pointer;
+  width: 25px;
+  margin-left: 10px;
 }

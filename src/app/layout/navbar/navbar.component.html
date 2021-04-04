@@ -1,51 +1,84 @@
-<mat-toolbar class="navbar" style="min-width: 960px;" >
+<mat-toolbar class="navbar">
 
-  <div>
-    <span fxShow fxFlexAlign="center">
-      <img src="assets/logos/default2.png" class="logo" />
-    </span>
+  <img src="assets/logos/default2.png" class="logo" />
+
+  <div *ngIf="!changeScreen" class="nav">
+
+    <ul>
+
+      <li class="menuItem " style="margin-left: 0;" (click)="navigate('home')">
+        <mat-icon>home</mat-icon>
+        <span >Home</span>
+        <div *ngIf="getCurrentPage('home')" class="border"></div>
+      </li>
+
+      <li class="menuItem " (click)="navigate('products')">
+        <mat-icon>store</mat-icon>
+        <span>Produtos</span>
+        <div *ngIf="getCurrentPage('products')" class="border"></div>
+      </li>
+
+      <li class="menuItem " (click)="navigate('about')">
+        <mat-icon>information</mat-icon>
+        <span>Info</span>
+        <div *ngIf="getCurrentPage('about')" class="border"></div>
+      </li>
+
+    </ul>
+
+    <div class="spacer"></div>
+
+    <ul>
+
+      <li class="menuItem " style="margin-left: 0;" (click)="navigate('account')">
+        <mat-icon>account_circle</mat-icon>
+        <span>Conta</span>
+        <div *ngIf="getCurrentPage('account')" class="border"></div>
+      </li>
+
+      <li class="menuItem " (click)="navigate('cart')">
+        <mat-icon>shopping_cart</mat-icon>
+        <span>Carrinho ({{cartCount}})</span>
+        <div *ngIf="getCurrentPage('cart')" class="border"></div>
+      </li>
+
+    </ul>
+
   </div>
 
-  <div style="display: flex; flex-direction: column;margin-left: 20px; height: 100%;justify-content: center;">
-    <div class="menuItem " (click)="navigate('home')">
-      <mat-icon class="icons" >home</mat-icon>
-      <span>HOME</span>
-    </div>
-    <div *ngIf="getCurrentPage('home')" class="border"></div>
-  </div>
+  <div *ngIf="changeScreen" class="nav">
+    <div class="spacer"></div>
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon class="menuIcon">menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" class="dropDown">
 
-  <div style="display: flex; flex-direction: column;margin-left: 20px;">
-    <div class="menuItem " (click)="navigate('products')">
-      <mat-icon class="icons" >store</mat-icon>
-      <span>PRODUTOS</span>
-    </div>
-    <div *ngIf="getCurrentPage('products')" class="border"></div>
-  </div>
+        <div mat-menu-item class="menuItem2" (click)="navigate('home')">
+          <mat-icon>home</mat-icon>
+          <span >Home</span>
+        </div>
 
-  <div style="display: flex; flex-direction: column;margin-left: 20px;">
-    <div class="menuItem " (click)="navigate('about')">
-      <mat-icon class="icons" >information</mat-icon>
-      <span>INFO</span>
-    </div>
-    <div *ngIf="getCurrentPage('about')" class="border"></div>
-  </div>
+        <div mat-menu-item class="menuItem2" (click)="navigate('products')">
+          <mat-icon>store</mat-icon>
+          <span>Produtos</span>
+        </div>
 
-  <span class="flexExpand"></span>
+        <div mat-menu-item class="menuItem2" (click)="navigate('about')">
+          <mat-icon>information</mat-icon>
+          <span>Info</span>
+        </div>
 
-  <div style="display: flex; flex-direction: column;margin-left: 20px;">
-    <div class="menuItem " (click)="navigate('account')">
-      <mat-icon class="icons" >account_circle</mat-icon>
-      <span>CONTA</span>
-    </div>
-    <div *ngIf="getCurrentPage('account')" class="border"></div>
-  </div>
+        <div mat-menu-item class="menuItem2" (click)="navigate('account')">
+          <mat-icon>account_circle</mat-icon>
+          <span>Conta</span>
+        </div>
 
-  <div style="display: flex; flex-direction: column;margin-left: 20px;">
-    <div class="menuItem " (click)="navigate('cart')">
-      <mat-icon class="icons" >shopping_cart</mat-icon>
-      <span>CARRINHO</span>
-    </div>
-    <div *ngIf="getCurrentPage('cart')" class="border"></div>
+        <div mat-menu-item class="menuItem2" (click)="navigate('cart')">
+          <mat-icon>shopping_cart</mat-icon>
+          <span>Carrinho ({{cartCount}})</span>
+        </div>
+
+    </mat-menu>
   </div>
 
 </mat-toolbar>
