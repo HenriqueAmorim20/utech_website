@@ -1,34 +1,43 @@
-.content {
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  background-color: white;
-  margin: 30px;
+.main {
+  background-image: url("../../../assets/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 70px;
+  margin-bottom: 0px;
   display: flex;
   flex-flow: row wrap;
   width: 100%;
 }
 
-.login {
+.content {
+  display: table;
+  flex: 1 0 240px;
+  background-color: white;
+  padding: 20px;
   border-radius: 10px;
-  padding: 30px;
-  background-color: #edededbb;
-  margin: auto;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin: min(20px, 100%);
+  width: 100%;
+  max-width: 650px;
 }
 
-.register {
-  background-color: #edededbb;
-  margin: auto;
-  margin-top: 30px;
-  margin-bottom: 30px;
+h2, span {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  // margin-bottom: 30px;
+}
+
+.border {
+  width: 35px;
+  height: 3px;
+  margin-top: -20px;
+  margin-left: 5px;
+  background-color: black;
 }
 
 .form {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  // padding: 25px;
-  // margin: 30px;
+  padding: 10px;
 }
 
 .raise:hover,

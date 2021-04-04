@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
-import { FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
@@ -11,28 +10,18 @@ import { Router } from '@angular/router';
 })
 export class AccountComponent implements OnInit {
 
-  email:any = new FormControl('', [Validators.required, Validators.email])
-
-  loginForm = this.formBuilder.group({
-    email: null,
-    password: null
+  loginForm: FormGroup = new FormGroup({
+    email: new FormControl('', [Validators.email, Validators.required ]),
+    password: new FormControl('', [Validators.required, Validators.min(3) ])
   });
+  hide = true;
 
 
-  constructor(private formBuilder: FormBuilder, private snackBar: MatSnackBar, private router: Router) { }
+  constructor(private snackBar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
     localStorage.setItem('currentPage', 'account')
   }
-
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
-    }
-
-    return this.email.hasError('email') ? 'Not a valid email' : '';
-  }
-
   onSubmit() {
     if(this.loginForm.value.email === null || this.loginForm.value.password === null) {
       this.snackBar.open("Campos inválidos, preencha corretamente!", "dismiss",{duration: 3000})
@@ -44,7 +33,11 @@ export class AccountComponent implements OnInit {
     } catch (error) {
       this.snackBar.open("Email ou senha inválidos!", "dismiss",{duration: 3000})
     }
-    this.loginForm.reset();
+    // this.loginForm.reset();
+  }
+
+  register(){
+    console.log('Redirect register');
   }
 
 }

@@ -1,28 +1,40 @@
-<div style="background-color: #edededbb; margin-top: 90px;">
-  <div class="content">
-    <div class="register">
-      AA
+<div class="main">
+  <div class="content" style="align-self: flex-start;">
+    <div style="margin-bottom: 30px;">
+      <h2>Não possui conta?</h2>
+      <div class="border"></div>
+      <span>Cadastre-se agora mesmo!</span>
     </div>
-    <div class="login">
-      <h1>Já possui uma conta?</h1>
-      <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <mat-form-field>
-          <mat-label>Digite seu email</mat-label>
-          <input matInput formControlName="email" placeholder="exemplo@gmail.com" [formControl]="email" required>
-          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Digite sua senha</mat-label>
-          <input matInput formControlName="password" placeholder="senha" required>
-        </mat-form-field>
-        <span>
-          <a style="font-size: 13px;" href="">Esqueceu a senha?</a>
-        </span>
-        <button type="submit">
-          Login
-        </button>
-      </form>
-    </div>
+    <p>Ao cadastrar sua conta, você será capaz de comprar mais rápido, ficar atualizado sobre a situação de um pedido e acompanhar o histórico dos pedidos que você já fez.</p>
+    <button (click)="register()">
+      Cadastrar-se
+    </button>
   </div>
-
+  <div class="content" style="align-self: flex-end;">
+    <div>
+      <h2>Já possui conta?!</h2>
+      <div class="border"></div>
+      <span>Se você já se cadastrou, faça o login abaixo.</span>
+    </div>
+    <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <span style="margin-bottom: 0px; margin-top: 20px;">Email</span>
+      <mat-form-field>
+        <mat-label>Digite seu email</mat-label>
+        <input matInput formControlName="email" placeholder="exemplo@gmail.com" required>
+      </mat-form-field>
+      <Span style="margin-bottom: 0px; margin-top: 20px;">Senha</Span>
+      <mat-form-field>
+        <mat-label>Digite sua senha</mat-label>
+        <input matInput placeholder="Senha" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </mat-form-field>
+    <span>
+      <a style="color: #3288af; font-size: 14px;" href="">Esqueceu a senha?</a>
+    </span>
+      <button type="submit">
+        Login
+      </button>
+    </form>
+  </div>
 </div>
+
