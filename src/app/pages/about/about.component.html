@@ -2,6 +2,7 @@
   <mat-tab label="CONTATO">
     <div class="content">
       <h1>Entre em contato</h1>
+      <div class="border"></div>
       <p>Deixe aqui sua sugestão ou sua dúvida</p>
       <form class="form" [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
         <mat-form-field>
@@ -10,8 +11,7 @@
         </mat-form-field>
         <mat-form-field>
           <mat-label>Digite seu email</mat-label>
-          <input matInput formControlName="email" placeholder="exemplo@gmail.com" [formControl]="email" required>
-          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+          <input matInput formControlName="email" placeholder="exemplo@gmail.com" required>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Assunto</mat-label>

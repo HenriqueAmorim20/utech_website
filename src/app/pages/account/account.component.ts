@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,7 +14,11 @@ export class AccountComponent implements OnInit {
     email: new FormControl('', [Validators.email, Validators.required ]),
     password: new FormControl('', [Validators.required, Validators.min(3) ])
   });
+  recoverForm: FormGroup = new FormGroup({
+    email_recover: new FormControl('', [Validators.email, Validators.required ]),
+  });
   hide = true;
+  recover: boolean = false;
 
 
   constructor(private snackBar: MatSnackBar, private router: Router) { }
@@ -22,8 +26,8 @@ export class AccountComponent implements OnInit {
   ngOnInit(): void {
     localStorage.setItem('currentPage', 'account')
   }
-  onSubmit() {
-    if(this.loginForm.value.email === null || this.loginForm.value.password === null) {
+  login() {
+    if(this.loginForm.value.email === "" || this.loginForm.value.password === "") {
       this.snackBar.open("Campos inválidos, preencha corretamente!", "dismiss",{duration: 3000})
       return
     }
@@ -38,6 +42,24 @@ export class AccountComponent implements OnInit {
 
   register(){
     console.log('Redirect register');
+  }
+
+  recoverPassword(){
+    console.log(this.recoverForm.value.email_recover)
+    if(this.recoverForm.value.email_recover === "") {
+      this.snackBar.open("Campos inválidos, preencha corretamente!", "dismiss",{duration: 3000})
+      return
+    }
+    try {
+      console.log(this.recoverForm.value);
+      //implementar post no bando
+    } catch (error) {
+      this.snackBar.open("Email não encontrado!", "dismiss",{duration: 3000})
+    }
+  }
+
+  toggleView1(value: boolean){
+    this.recover = value;
   }
 
 }

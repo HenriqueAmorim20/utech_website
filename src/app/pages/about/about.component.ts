@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
-import { FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
@@ -11,37 +10,28 @@ import { Router } from '@angular/router';
 })
 export class AboutComponent implements OnInit {
 
-  email:any = new FormControl('', [Validators.required, Validators.email]);
-  checkoutForm = this.formBuilder.group({
-    name: null,
-    email: null,
-    subject: null,
-    message: null
+  checkoutForm: FormGroup = new FormGroup({
+    name: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.email, Validators.required ]),
+    subject: new FormControl('', [Validators.required]),
+    message: new FormControl('', [Validators.required])
   });
 
-  constructor(private formBuilder: FormBuilder, private snackBar: MatSnackBar, private router: Router) { }
+  constructor(private snackBar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
     localStorage.setItem('currentPage', 'about')
   }
 
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
-    }
-
-    return this.email.hasError('email') ? 'Not a valid email' : '';
-  }
-
   onSubmit() {
-    if(this.checkoutForm.value.name === null || this.checkoutForm.value.email === null || this.checkoutForm.value.subject === null || this.checkoutForm.value.message === null) {
+    if(this.checkoutForm.value.name === "" || this.checkoutForm.value.email === "" || this.checkoutForm.value.subject === "" || this.checkoutForm.value.message === "") {
       this.snackBar.open("Campos inválidos, preencha corretamente!", "dismiss",{duration: 3000})
       return
     }
     try {
       console.log(this.checkoutForm.value);
       //implementar post no banco
-      this.snackBar.open("Mensagem enviada com sucesso, obrigado!", "dismiss",{duration: 5000})
+      this.snackBar.open("Mensagem enviada com sucesso, obrigado! Redirecionando para home.", "dismiss",{duration: 5000})
       setTimeout( () => {this.router.navigate(['home'])}, 3000)
     } catch (error) {
       console.log(error)
