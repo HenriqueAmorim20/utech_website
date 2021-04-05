@@ -17,10 +17,14 @@
   border-radius: 10px;
   margin: min(20px, 100%);
   width: 100%;
-  max-width: 650px;
+  max-width: auto;
 }
 
-h2, span {
+h2 {
+  color: #3288af;
+}
+
+h2, span, h3 {
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   // margin-bottom: 30px;
 }
@@ -30,7 +34,8 @@ h2, span {
   height: 3px;
   margin-top: -20px;
   margin-left: 5px;
-  background-color: black;
+  margin-bottom: 10px;
+  background-color: #3288af;;
 }
 
 .form {
@@ -91,3 +96,10 @@ button {
 .backbtn:hover {
   color: #3288af;
 }
+
+::ng-deep .mat-checkbox-checked.mat-accent {
+  .mat-checkbox-background {
+      background-color: #3288af;
+   }
+}
+

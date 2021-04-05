@@ -1,28 +1,28 @@
 <div class="main">
-  <div *ngIf="!recover" class="content">
+  <div *ngIf="!recover && !registerView" class="content">
     <div style="margin-bottom: 30px;">
       <h2>Não possui conta?</h2>
       <div class="border"></div>
       <span>Cadastre-se agora mesmo!</span>
     </div>
     <p>Ao cadastrar sua conta, você será capaz de comprar mais rápido, ficar atualizado sobre a situação de um pedido e acompanhar o histórico dos pedidos que você já fez.</p>
-    <button (click)="register()">
+    <button class="raise" (click)="toggleView2(true)">
       Cadastrar-se
     </button>
   </div>
-  <div *ngIf="!recover" class="content">
+  <div *ngIf="!recover && !registerView" class="content">
     <div>
       <h2>Já possui conta?!</h2>
       <div class="border"></div>
       <span>Se você já se cadastrou, faça o login abaixo.</span>
     </div>
     <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
-      <span style="margin-bottom: 0px; margin-top: 20px;">Email</span>
+      <span style="margin-bottom: 0px; margin-top: 5px;">Email</span>
       <mat-form-field>
         <mat-label>Digite seu email</mat-label>
         <input matInput formControlName="email" placeholder="exemplo@gmail.com" required>
       </mat-form-field>
-      <Span style="margin-bottom: 0px; margin-top: 20px;">Senha</Span>
+      <Span style="margin-bottom: 0px; margin-top: 5px;">Senha</Span>
       <mat-form-field>
         <mat-label>Digite sua senha</mat-label>
         <input matInput placeholder="Senha" [type]="hide ? 'password' : 'text'" formControlName="password" required>
@@ -31,26 +31,88 @@
     <span>
       <a style="color: #3288af; font-size: 14px; cursor: pointer;" (click)="toggleView1(true)">Esqueceu a senha?</a>
     </span>
-      <button type="submit">
+      <button class="raise" type="submit">
         Login
       </button>
     </form>
   </div>
 
-  <div *ngIf="recover" class="content">
-      <mat-icon (click)="toggleView1(false)" class="backbtn">arrow_back</mat-icon>
-      <h2>Solicitar nova senha</h2>
-      <div class="border"></div>
+  <div *ngIf="recover && !registerView" class="content">
+    <mat-icon (click)="toggleView1(false)" class="backbtn">arrow_back</mat-icon>
+    <h2>Solicitar nova senha</h2>
+    <div class="border"></div>
     <form class="form" [formGroup]="recoverForm" (ngSubmit)="recoverPassword()">
-      <span style="margin-bottom: 0px; margin-top: 20px;">Caso já possua um email cadastrado, preencha o campo abaixo e clique e recuperar, um link será enviado por email para redefinir sua senha.</span>
+      <span style="margin-bottom: 0px; margin-top: 5px;">Caso já possua um email cadastrado, preencha o campo abaixo e clique em recuperar, um link será enviado por email para redefinir sua senha.</span>
       <mat-form-field>
         <mat-label>Digite seu email</mat-label>
         <input matInput formControlName="email_recover" placeholder="exemplo@gmail.com" required>
       </mat-form-field>
-      <button type="submit">
+      <button class="raise" type="submit">
         Recuperar
       </button>
     </form>
   </div>
+
+  <div *ngIf="registerView && !recover" class="content">
+    <mat-icon (click)="toggleView2(false)" class="backbtn">arrow_back</mat-icon>
+    <h2>Cadastre sua conta!</h2>
+    <div class="border"></div>
+    <form class="form" [formGroup]="registerForm" (ngSubmit)="register()">
+      <h3 style="font-weight: lighter; border-bottom: 3px solid black; width: fit-content;">Dados pessoais</h3>
+      <div style="margin-left: 10px; display: flex; flex-direction: column;">
+        <span style="margin-bottom: 0px; margin-top: 5px; font-size: 14px;">Nome completo:</span>
+        <mat-form-field>
+          <mat-label>Digite seu nome</mat-label>
+          <input matInput formControlName="name" placeholder="José da Silva Costa" required>
+       </mat-form-field>
+      </div>
+      <div style="margin-left: 10px; display: flex; flex-direction: column;">
+        <span style="margin-bottom: 0px; margin-top: 5px; font-size: 14px;">CPF:</span>
+        <mat-form-field>
+          <mat-label>Digite seu CPF</mat-label>
+          <input matInput formControlName="cpf" placeholder="04706959392" required>
+       </mat-form-field>
+      </div>
+      <div style="margin-left: 10px; display: flex; flex-direction: column;">
+        <span style="margin-bottom: 0px; margin-top: 5px; font-size: 14px;">Email:</span>
+        <mat-form-field>
+          <mat-label>Digite seu email</mat-label>
+          <input matInput formControlName="email" placeholder="exemplo@gmail.com" required>
+       </mat-form-field>
+      </div>
+      <div style="margin-left: 10px; display: flex; flex-direction: column;">
+        <span style="margin-bottom: 0px; margin-top: 5px; font-size: 14px;">Telefone:</span>
+        <mat-form-field>
+          <mat-label>Digite seu telefone</mat-label>
+          <input matInput formControlName="phone" placeholder="(061) 985270234" required>
+       </mat-form-field>
+      </div>
+      <h3 style="font-weight: lighter; border-bottom: 3px solid black; width: fit-content;">Senha de acesso</h3>
+      <div style="margin-left: 10px; display: flex; flex-direction: column;">
+        <span style="margin-bottom: 0px; margin-top: 5px; font-size: 14px;">Senha:</span>
+        <mat-form-field>
+          <mat-label>Digite sua senha</mat-label>
+          <input matInput placeholder="Senha" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </mat-form-field>
+      </div>
+      <div style="margin-left: 10px; display: flex; flex-direction: column;">
+        <span style="margin-bottom: 0px; margin-top: 5px; font-size: 14px;">Confirme a senha:</span>
+        <mat-form-field>
+          <mat-label>Confirme sua senha</mat-label>
+          <input matInput placeholder="Senha" [type]="hide ? 'password' : 'text'" formControlName="confirmPassword" required>
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </mat-form-field>
+      </div>
+      <mat-checkbox (change)="checkBox($event)">
+        <p style="white-space: normal;"> Ao cadastrar-me, declaro que sou maior de idade e aceito as políticas de privacidade e os termos de uso.</p>
+      </mat-checkbox>
+      <button type="submit">
+        Confirmar
+      </button>
+    </form>
+  </div>
+
 </div>
+
 
