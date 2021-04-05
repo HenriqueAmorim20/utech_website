@@ -1,8 +1,8 @@
 <mat-toolbar class="navbar">
 
-  <img src="assets/logos/default2.png" class="logo" />
+  <img src="assets/logos/logo.png" class="logo" (click)="navigate('home')"/>
 
-  <div *ngIf="!changeScreen" class="nav">
+  <div *ngIf="innerWidth > 850" class="nav">
 
     <ul>
 
@@ -46,35 +46,35 @@
 
   </div>
 
-  <div *ngIf="changeScreen" class="nav">
+  <div *ngIf="innerWidth < 851" class="nav">
     <div class="spacer"></div>
     <button mat-button [matMenuTriggerFor]="menu">
       <mat-icon class="menuIcon">menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu" class="dropDown">
 
-        <div style="border-bottom: 0.5px solid white;" mat-menu-item class="menuItem2" (click)="navigate('home')">
-          <mat-icon style="color: white;">home</mat-icon>
+        <div style="border-bottom: 0.5px solid #e6e6e6;" mat-menu-item class="menuItem2" (click)="navigate('home')">
+          <mat-icon style="color: #e6e6e6;">home</mat-icon>
           <span >Home</span>
         </div>
 
-        <div style="border-bottom: 0.5px solid white;" mat-menu-item class="menuItem2" (click)="navigate('products')">
-          <mat-icon style="color: white;">store</mat-icon>
+        <div style="border-bottom: 0.5px solid #e6e6e6;" mat-menu-item class="menuItem2" (click)="navigate('products')">
+          <mat-icon style="color: #e6e6e6;">store</mat-icon>
           <span>Produtos</span>
         </div>
 
-        <div style="border-bottom: 0.5px solid white;" mat-menu-item class="menuItem2" (click)="navigate('about')">
-          <mat-icon style="color: white;"> information</mat-icon>
+        <div style="border-bottom: 0.5px solid #e6e6e6;" mat-menu-item class="menuItem2" (click)="navigate('about')">
+          <mat-icon style="color: #e6e6e6;"> information</mat-icon>
           <span>Info</span>
         </div>
 
-        <div style="border-bottom: 0.5px solid white;" mat-menu-item class="menuItem2" (click)="navigate('account')">
-          <mat-icon style="color: white;">account_circle</mat-icon>
+        <div style="border-bottom: 0.5px solid #e6e6e6;" mat-menu-item class="menuItem2" (click)="navigate('account')">
+          <mat-icon style="color: #e6e6e6;">account_circle</mat-icon>
           <span>Conta</span>
         </div>
 
         <div mat-menu-item class="menuItem2" (click)="navigate('cart')">
-          <mat-icon style="color: white;">shopping_cart</mat-icon>
+          <mat-icon style="color: #e6e6e6;">shopping_cart</mat-icon>
           <span>Carrinho ({{cartCount}})</span>
         </div>
 

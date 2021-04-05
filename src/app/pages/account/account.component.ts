@@ -2,12 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { trigger, state, style, animate, transition } from '@angular/animations';
+
 
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
-  styleUrls: ['./account.component.scss']
+  styleUrls: ['./account.component.scss'],
+  animations:[
+    trigger('fade', [
+      state('in', style({ opacity: 1 })),
+      transition(':enter', [ style({ opacity: 0 }), animate(500) ])
+    ])
+  ]
 })
 export class AccountComponent implements OnInit {
 

@@ -1,23 +1,22 @@
 .navbar {
-  background-color: #3288af;
-  height: 70px;
+  background: #3288af;
+  height: 100px;
   width: 100%;
   display: flex;
   align-items: center;
-  position: fixed;
-  top: 0;
   z-index: 2;
 }
 
+
 .logo {
-  width: 200px;
+  width: 180px;
   margin: 20px 0;
   cursor: pointer;
 }
 
 .menuIcon {
   cursor: pointer;
-  color: #e9e9e6;
+  color: #e6e6e6;
   display: block;
 }
 
@@ -27,18 +26,18 @@
   align-items: center;
   margin-left: 25px;
   font-size: 15px;
-  color: #e9e9e6;
+  color: #e6e6e6;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   max-height: 100%;
 }
 
 .menuItem:hover {
-  color: black;
+  color: white;
 }
 
 .menuItem2 {
   font-size: 15px;
-  color: #e9e9e6;
+  color: #e6e6e6;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -66,8 +65,8 @@ mat-icon {
 }
 
 ::ng-deep .dropDown {
-  margin-top: 22px;
+  margin-top: 36px;
   margin-left: -100px;
-  background-color: #3288af;
+  background-color:#3288af;
 }
 

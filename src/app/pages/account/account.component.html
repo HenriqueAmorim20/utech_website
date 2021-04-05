@@ -1,5 +1,5 @@
 <div class="main">
-  <div *ngIf="!recover && !registerView" class="content">
+  <div *ngIf="!recover && !registerView" class="content" [@fade]="'in'">
     <div style="margin-bottom: 30px;">
       <h2>Não possui conta?</h2>
       <div class="border"></div>
@@ -10,7 +10,7 @@
       Cadastrar-se
     </button>
   </div>
-  <div *ngIf="!recover && !registerView" class="content">
+  <div *ngIf="!recover && !registerView" class="content" [@fade]="'in'">
     <div>
       <h2>Já possui conta?!</h2>
       <div class="border"></div>
@@ -37,7 +37,7 @@
     </form>
   </div>
 
-  <div *ngIf="recover && !registerView" class="content">
+  <div *ngIf="recover && !registerView" class="content" [@fade]="'in'">
     <mat-icon (click)="toggleView1(false)" class="backbtn">arrow_back</mat-icon>
     <h2>Solicitar nova senha</h2>
     <div class="border"></div>
@@ -53,7 +53,7 @@
     </form>
   </div>
 
-  <div *ngIf="registerView && !recover" class="content">
+  <div *ngIf="registerView && !recover" class="content" [@fade]="'in'">
     <mat-icon (click)="toggleView2(false)" class="backbtn">arrow_back</mat-icon>
     <h2>Cadastre sua conta!</h2>
     <div class="border"></div>

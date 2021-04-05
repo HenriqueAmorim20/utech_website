@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,19 +6,22 @@ import { Router } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
+
 export class NavbarComponent implements OnInit {
   cartCount: number = 0;
   changeScreen: boolean = false;
-
+  innerWidth: any;
 
   constructor(private router: Router) { }
 
-  ngOnInit(): void {
-    setInterval(()=>{
-      if(window.innerWidth < 880)
-        this.changeScreen = true
-      else this.changeScreen = false
-    }, 100)
+
+  ngOnInit() {
+      this.innerWidth = window.innerWidth;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+  this.innerWidth = event.target.innerWidth;
   }
 
   navigate(value: any){
