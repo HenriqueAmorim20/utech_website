@@ -14,8 +14,10 @@
     <div class="border"></div>
   </div>
   <div style="display: flex; flex-flow: row wrap;">
-    <div class="card" *ngFor="let product of recommended">
-      <app-product-card [product] = "product"></app-product-card>
+    <div  *ngFor="let product of recommended" style="display: flex;margin: auto; margin-top: 20px;">
+      <div style="position: relative; float:left; min-width:10px"></div>
+      <app-product-card [product]="product"></app-product-card>
+      <div style="position: relative; float:right;min-width:10px"></div>
     </div>
   </div>
 </div>
@@ -25,8 +27,10 @@
     <div class="border"></div>
   </div>
   <div style="display: flex; flex-flow: row wrap;">
-    <div  class="card" *ngFor="let product of news">
-      <app-product-card [product] = "product"></app-product-card>
+    <div  *ngFor="let product of news" style="display: flex;margin: auto; margin-top: 20px;">
+      <div style="position: relative; float:left; min-width:10px"></div>
+      <app-product-card [product]="product"></app-product-card>
+      <div style="position: relative; float:right;min-width:10px"></div>
     </div>
   </div>
 </div>

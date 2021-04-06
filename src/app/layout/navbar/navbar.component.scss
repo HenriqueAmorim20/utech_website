@@ -1,5 +1,5 @@
 .navbar {
-  background: #3288af;
+  background: rgb(25 , 25, 25);
   height: 100px;
   width: 100%;
   display: flex;
@@ -16,7 +16,7 @@
 
 .menuIcon {
   cursor: pointer;
-  color: #e6e6e6;
+  color: #3288af;
   display: block;
 }
 
@@ -26,7 +26,7 @@
   align-items: center;
   margin-left: 25px;
   font-size: 15px;
-  color: #e6e6e6;
+  color: #3288af;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   max-height: 100%;
 }
@@ -37,9 +37,10 @@
 
 .menuItem2 {
   font-size: 15px;
-  color: #e6e6e6;
+  color: white;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
 
 .spacer {
   flex: 1 1 auto;
@@ -67,6 +68,6 @@ mat-icon {
 ::ng-deep .dropDown {
   margin-top: 36px;
   margin-left: -100px;
-  background-color:#3288af;
+  background-color:rgba(0, 0, 0, 0.904);
 }
 

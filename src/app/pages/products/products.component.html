@@ -1,1 +1,45 @@
-<p>products works!</p>
+<div class="main">
+  <div *ngIf="innerWidth > 850" class="leftDiv">
+    <ul>
+      <li>PC's</li>
+      <li>Smartwatch</li>
+      <li>Smartphones</li>
+      <li>Periféricos</li>
+      <li>Ipad's</li>
+      <li>SDD's e HD's</li>
+    </ul>
+  </div>
+  <div class="rightDiv">
+    <div *ngIf="innerWidth < 851">
+      <mat-tab-group>
+        <mat-tab label="PC's"></mat-tab>
+        <mat-tab label="Smartwatch"></mat-tab>
+        <mat-tab label="Smartphones"></mat-tab>
+        <mat-tab label="Periféricos"></mat-tab>
+        <mat-tab label="Ipad's"></mat-tab>
+        <mat-tab label="SDD's e HD's"></mat-tab>
+      </mat-tab-group>
+    </div>
+    <div class="top">
+      <div style="background-color: rgba(0, 0, 0, 0.815); border-radius: 5px; padding-top: 5px; padding-bottom: 5px;">
+        <span style="padding: 10px; color:white;">Ordenar:</span>
+      </div>
+      <mat-form-field style="width: 100%; margin-left: 5px;">
+        <mat-label>Padrão</mat-label>
+        <select matNativeControl [value]="sort">
+          <option value="a-z">Nome de A-Z</option>
+          <option value="z-a">Nome de Z-A</option>
+          <option value="priceLower">Preço (menor para maior)</option>
+          <option value="priceHigher">Preço (maior para menor)</option>
+        </select>
+      </mat-form-field>
+    </div>
+    <div class="bottom">
+      <div  *ngFor="let product of products" style="display: flex;margin: auto; margin-bottom: 10px;">
+        <div style="position: relative; float:left; min-width:10px"></div>
+        <app-product-card [product]="product"></app-product-card>
+        <div style="position: relative; float:right;min-width:10px"></div>
+      </div>
+    </div>
+  </div>
+</div>
