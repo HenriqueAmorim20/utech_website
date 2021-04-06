@@ -10,6 +10,7 @@
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.884);
   color: white;
+  height: fit-content;
 }
 
 ul {
@@ -72,4 +73,13 @@ li:hover {
 
 ::ng-deep .mat-ink-bar {
   background-color: #5bcbff !important;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.selected {
+  font-size: 22px;
+  color: #3288af;
 }
