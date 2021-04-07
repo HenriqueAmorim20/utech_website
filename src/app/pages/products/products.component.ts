@@ -1,10 +1,18 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material/tabs';
+import { trigger, state, style, animate, transition } from '@angular/animations';
+
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss'],
+  animations:[
+    trigger('fade', [
+      state('in', style({ opacity: 1 })),
+      transition(':enter', [ style({ opacity: 0 }), animate(750) ])
+    ])
+  ]
 })
 export class ProductsComponent implements OnInit {
 

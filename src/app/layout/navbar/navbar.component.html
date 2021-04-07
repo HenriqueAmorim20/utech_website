@@ -1,84 +1,104 @@
-<mat-toolbar class="navbar">
+<div class="main">
+  <mat-toolbar [ngClass]="{'navbar': !hide, 'hidden': hide}">
 
-  <img src="assets/logos/logo2.png" class="logo" (click)="navigate('home')"/>
+    <img src="assets/logos/logo3.png" class="logo"  (click)="navigate('home')"/>
 
-  <div *ngIf="innerWidth > 850" class="nav">
+    <div *ngIf="innerWidth > 850" class="nav">
 
-    <ul>
+      <ul>
 
-      <li class="menuItem " style="margin-left: 0;" (click)="navigate('home')">
-        <mat-icon>home</mat-icon>
-        <span >Home</span>
-        <div *ngIf="getCurrentPage('home')" class="border"></div>
-      </li>
+        <li class="menuItem " style="margin-left: 0;" (click)="navigate('home')">
+          <div style="display: flex; flex-direction: column; align-items: center; align-content: center; min-width: 90px;">
+            <mat-icon>home</mat-icon>
+            <span >Home</span>
+          </div>
+          <div *ngIf="getCurrentPage('home')" class="border"></div>
+        </li>
 
-      <li class="menuItem " (click)="navigate('products')">
-        <mat-icon>store</mat-icon>
-        <span>Produtos</span>
-        <div *ngIf="getCurrentPage('products')" class="border"></div>
-      </li>
+        <li class="menuItem " (click)="navigate('products')">
+          <div style="display: flex; flex-direction: column; align-items: center; align-content: center; min-width: 90px;">
+            <mat-icon>store</mat-icon>
+            <span>Produtos</span>
+          </div>
+          <div *ngIf="getCurrentPage('products')" class="border"></div>
+        </li>
 
-      <li class="menuItem " (click)="navigate('about')">
-        <mat-icon>information</mat-icon>
-        <span>Info</span>
-        <div *ngIf="getCurrentPage('about')" class="border"></div>
-      </li>
+        <li class="menuItem " (click)="navigate('about')">
+          <div style="display: flex; flex-direction: column; align-items: center; align-content: center; min-width: 90px;">
+            <mat-icon>information</mat-icon>
+            <span>Info</span>
+          </div>
 
-    </ul>
+          <div *ngIf="getCurrentPage('about')" class="border"></div>
+        </li>
 
-    <div class="spacer"></div>
+      </ul>
 
-    <ul>
+      <div class="spacer"></div>
 
-      <li class="menuItem " style="margin-left: 0;" (click)="navigate('account')">
-        <mat-icon>account_circle</mat-icon>
-        <span>Conta</span>
-        <div *ngIf="getCurrentPage('account')" class="border"></div>
-      </li>
+      <ul>
 
-      <li class="menuItem " (click)="navigate('cart')">
-        <mat-icon>shopping_cart</mat-icon>
-        <span>Carrinho ({{cartCount}})</span>
-        <div *ngIf="getCurrentPage('cart')" class="border"></div>
-      </li>
+        <li class="menuItem " style="margin-left: 0;" (click)="navigate('account')">
+          <div style="display: flex; flex-direction: column; align-items: center; align-content: center; min-width: 90px;">
+            <mat-icon>account_circle</mat-icon>
+            <span>Conta</span>
+          </div>
 
-    </ul>
+          <div *ngIf="getCurrentPage('account')" class="border"></div>
+        </li>
 
+        <li class="menuItem " (click)="navigate('cart')" style="margin-right: 10px;">
+          <div style="display: flex; flex-direction: column; align-items: center; align-content: center; min-width: 100px;">
+            <mat-icon>shopping_cart</mat-icon>
+            <span>Carrinho ({{cartCount}})</span>
+          </div>
+
+          <div *ngIf="getCurrentPage('cart')" class="border"></div>
+        </li>
+
+      </ul>
+
+    </div>
+
+    <div *ngIf="innerWidth < 851" class="nav">
+      <div class="spacer"></div>
+      <button mat-button [matMenuTriggerFor]="menu">
+        <mat-icon class="menuIcon">menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" class="dropDown">
+
+          <div style="border-bottom: 0.5px solid #e6e6e6;" mat-menu-item class="menuItem2" (click)="navigate('home')">
+            <mat-icon style="color: #e6e6e6;">home</mat-icon>
+            <span >Home</span>
+          </div>
+
+          <div style="border-bottom: 0.5px solid #e6e6e6;" mat-menu-item class="menuItem2" (click)="navigate('products')">
+            <mat-icon style="color: #e6e6e6;">store</mat-icon>
+            <span>Produtos</span>
+          </div>
+
+          <div style="border-bottom: 0.5px solid #e6e6e6;" mat-menu-item class="menuItem2" (click)="navigate('about')">
+            <mat-icon style="color: #e6e6e6;"> information</mat-icon>
+            <span>Info</span>
+          </div>
+
+          <div style="border-bottom: 0.5px solid #e6e6e6;" mat-menu-item class="menuItem2" (click)="navigate('account')">
+            <mat-icon style="color: #e6e6e6;">account_circle</mat-icon>
+            <span>Conta</span>
+          </div>
+
+          <div mat-menu-item class="menuItem2" (click)="navigate('cart')">
+            <mat-icon style="color: #e6e6e6;">shopping_cart</mat-icon>
+            <span>Carrinho ({{cartCount}})</span>
+          </div>
+
+      </mat-menu>
+    </div>
+
+  </mat-toolbar>
+   <div *ngIf="innerWidth > 850" (click)="toggleNavbar()" style="cursor: pointer; width: 100%; margin-top: 0px;z-index: 3; background-color: rgb(45, 45, 45); color: white;">
+    <mat-icon *ngIf="!hide" style="font-size: 30px; margin-left: 50%;">keyboard_arrow_down</mat-icon>
+    <mat-icon *ngIf="hide" style="font-size: 30px; margin-left: 50%;">keyboard_arrow_up</mat-icon>
   </div>
+</div>
 
-  <div *ngIf="innerWidth < 851" class="nav">
-    <div class="spacer"></div>
-    <button mat-button [matMenuTriggerFor]="menu">
-      <mat-icon class="menuIcon">menu</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu" class="dropDown">
-
-        <div style="border-bottom: 0.5px solid #e6e6e6;" mat-menu-item class="menuItem2" (click)="navigate('home')">
-          <mat-icon style="color: #e6e6e6;">home</mat-icon>
-          <span >Home</span>
-        </div>
-
-        <div style="border-bottom: 0.5px solid #e6e6e6;" mat-menu-item class="menuItem2" (click)="navigate('products')">
-          <mat-icon style="color: #e6e6e6;">store</mat-icon>
-          <span>Produtos</span>
-        </div>
-
-        <div style="border-bottom: 0.5px solid #e6e6e6;" mat-menu-item class="menuItem2" (click)="navigate('about')">
-          <mat-icon style="color: #e6e6e6;"> information</mat-icon>
-          <span>Info</span>
-        </div>
-
-        <div style="border-bottom: 0.5px solid #e6e6e6;" mat-menu-item class="menuItem2" (click)="navigate('account')">
-          <mat-icon style="color: #e6e6e6;">account_circle</mat-icon>
-          <span>Conta</span>
-        </div>
-
-        <div mat-menu-item class="menuItem2" (click)="navigate('cart')">
-          <mat-icon style="color: #e6e6e6;">shopping_cart</mat-icon>
-          <span>Carrinho ({{cartCount}})</span>
-        </div>
-
-    </mat-menu>
-  </div>
-
-</mat-toolbar>

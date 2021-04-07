@@ -11,6 +11,7 @@ export class NavbarComponent implements OnInit {
   cartCount: number = 0;
   changeScreen: boolean = false;
   innerWidth: any;
+  hide: any = false;
 
   constructor(private router: Router) { }
 
@@ -22,6 +23,8 @@ export class NavbarComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
   this.innerWidth = event.target.innerWidth;
+  if(this.innerWidth < 851)
+    this.hide = false
   }
 
   navigate(value: any){
@@ -30,5 +33,9 @@ export class NavbarComponent implements OnInit {
 
   getCurrentPage(value: any){
     return localStorage.getItem("currentPage") === value
+  }
+
+  toggleNavbar(){
+    this.hide = !this.hide
   }
 }
