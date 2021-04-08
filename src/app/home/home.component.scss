@@ -2,7 +2,7 @@
   cursor: pointer;
   background-color: transparent;
   border-color: transparent;
-  min-height: 100%;
+  // min-height: 100%;
 }
 .sideButtons:hover {
   background-color: #8d8d8d48;
@@ -20,8 +20,15 @@
 }
 
 .main {
-  padding: 20px;
-  background-color: rgb(45, 45, 45);
+  padding: 60px;
+  padding-top: 5px;
+  background-color: white;
+}
+
+.main2 {
+  padding: 10px;
+  padding-top: 5px;
+  background-color: white;
 }
 
 .content {

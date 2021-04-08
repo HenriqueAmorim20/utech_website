@@ -1,7 +1,8 @@
 <div class="main">
   <mat-toolbar [ngClass]="{'navbar': !hide, 'hidden': hide}">
 
-    <img src="assets/logos/logo3.png" class="logo"  (click)="navigate('home')"/>
+    <img *ngIf="innerWidth > 850" src="assets/logos/logo.png" class="logo"  (click)="navigate('home')"/>
+    <img *ngIf="innerWidth < 851" src="assets/logos/slim_logo.png" class="logo"  (click)="navigate('home')"/>
 
     <div *ngIf="innerWidth > 850" class="nav">
 
@@ -96,8 +97,8 @@
     </div>
 
   </mat-toolbar>
-   <div *ngIf="innerWidth > 850" (click)="toggleNavbar()" style="cursor: pointer; width: 100%; margin-top: 0px;z-index: 3; background-color: rgb(45, 45, 45); color: white;">
-    <mat-icon *ngIf="!hide" style="font-size: 30px; margin-left: 50%;">keyboard_arrow_down</mat-icon>
+   <div *ngIf="innerWidth > 850" (click)="toggleNavbar()" style=" cursor: pointer; width: 100%;z-index: 3; background-color: rgb(45, 45, 45); color: white;">
+    <mat-icon *ngIf="!hide" style="font-size: 30px; margin-left: 50%; padding-bottom: 5px;">keyboard_arrow_down</mat-icon>
     <mat-icon *ngIf="hide" style="font-size: 30px; margin-left: 50%;">keyboard_arrow_up</mat-icon>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
 
@@ -95,12 +95,19 @@ export class HomeComponent implements OnInit {
     }
   ]
   timer: any;
+  innerWidth: any;
 
   constructor() { }
 
   ngOnInit() {
     localStorage.setItem("currentPage", "home")
     this.startTimer()
+    this.innerWidth = window.innerWidth;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+  this.innerWidth = event.target.innerWidth;
   }
 
   startTimer(){

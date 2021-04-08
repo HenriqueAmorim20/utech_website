@@ -55,24 +55,8 @@ li:hover {
   background-color: rgba(0, 0, 0, 0.089);
   padding: 10px;
 }
-
-
-::ng-deep .mat-tab-group {
-  background-color: rgba(25, 25, 25);
-}
-
-::ng-deep .mat-tab-label {
-  color: #6b6b6b;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-::ng-deep .mat-tab-label-active {
-  color: white;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
 ::ng-deep .mat-ink-bar {
-  background-color: white !important;
+  background-color: #5bcbff !important;
 }
 
 .spacer {
