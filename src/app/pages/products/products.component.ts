@@ -26,12 +26,40 @@ export class ProductsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    localStorage.setItem('currentPage', 'products')
+    localStorage.setItem('currentPage', 'produtos')
     this.innerWidth = window.innerWidth
     try {
       //Fazer o get das categorias e dos produtos
       this.categories = ['PCs', 'SmartWatch', 'SmartPhone', 'Periféricos', 'Ipads', 'SSDs e HDs']
       this.allProducts = [
+        {
+          title: 'iPad Pro (2020) 11" 2ª Geração Cinza-Espacial 128GB Wi-Fi',
+          price: 6999.00,
+          imgSrc: "ipadpro.png",
+          id: "1",
+          category: "PCs"
+        },
+        {
+          title: 'Macbook Air 13" (2020) Cinza-Espacial / Processador M1 / 8GB / 256GB SSD',
+          price: 9099.00,
+          imgSrc: "macbookair.png",
+          id: "2",
+          category: "PCs"
+        },
+        {
+          title: 'MacBook Pro 13” (2020) Space Gray Touch Bar/ID - Processador M1 / 8GB / 256GB SSD',
+          price: 11099.00,
+          imgSrc: "macbookpro.png",
+          id: "3",
+          category: "PCs"
+        },
+        {
+          title: "iPad 8˚Geração Cinza espacial 128GB Wifi",
+          price: 3599.00,
+          imgSrc: "ipad.png",
+          id: "4",
+          category: "PCs"
+        },
         {
           title: 'iPad Pro (2020) 11" 2ª Geração Cinza-Espacial 128GB Wi-Fi',
           price: 6999.00,

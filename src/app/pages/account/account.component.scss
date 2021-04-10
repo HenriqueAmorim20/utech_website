@@ -1,14 +1,15 @@
 .main {
-  background-color: #e6e6e6;
+  background-color: transparent;
   display: flex;
   flex-flow: row wrap;
   width: 100%;
+  margin-top: 30px;
 }
 
 .content {
   display: table;
   flex: 1 0 240px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.85);
   padding: 20px;
   border-radius: 10px;
   margin: min(20px, 100%);

@@ -1,11 +1,9 @@
 .footer {
   display: flex;
   flex-flow: row wrap;
-  background-color: rgb(45, 45, 45);
+  background: transparent;
+  background-color: black;
   color: white;
-  border-top: 3px solid white;
-  position: absolute;
-  width: 100%;
 }
 
 .flexExpand {

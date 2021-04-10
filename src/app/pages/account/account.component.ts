@@ -43,7 +43,7 @@ export class AccountComponent implements OnInit {
   constructor(private snackBar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
-    localStorage.setItem('currentPage', 'account')
+    localStorage.setItem('currentPage', 'conta')
   }
   login() {
     if(this.loginForm.value.email === "" || this.loginForm.value.password === "") {

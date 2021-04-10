@@ -27,7 +27,7 @@ export class AboutComponent implements OnInit {
   constructor(private snackBar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
-    localStorage.setItem('currentPage', 'about')
+    localStorage.setItem('currentPage', 'info')
   }
 
   onSubmit() {

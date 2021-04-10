@@ -1,21 +1,13 @@
 <div [@fade]="'in'">
-  <div class="images" style="background-image: url('../../assets/slide/{{images[i]}}.png');">
-    <div class="sideButtons" (click)="cImage()">
-      <mat-icon>keyboard_arrow_left</mat-icon>
-    </div>
-    <img src="/assets/slide/{{images[i]}}.png" style="visibility: hidden; width: 100%; overflow: hidden;" />
-    <div class="sideButtons" (click)="cImage('next')">
-      <mat-icon>keyboard_arrow_right</mat-icon>
-    </div>
-  </div>
 
-  <div [ngClass]="{'main': innerWidth > 850, 'main2': innerWidth < 851}">
+  <div class="main" [ngClass]="{'main': innerWidth > 850, 'main2': innerWidth < 851}">
+
     <div class="content">
       <div style="margin-bottom: 30px;">
         <h2>Recomendados para você!</h2>
         <div class="border"></div>
       </div>
-      <div style="display: flex; flex-flow: row wrap;">
+      <div style="display: flex; flex-flow: row wrap; padding-bottom: 40px;">
         <div  *ngFor="let product of recommended" style="display: flex;margin: auto; margin-top: 20px;">
           <div style="position: relative; float:left; min-width:20px"></div>
           <app-product-card [product]="product"></app-product-card>
@@ -23,12 +15,13 @@
         </div>
       </div>
     </div>
+
     <div class="content">
       <div>
         <h2>Novidades da loja!</h2>
         <div class="border"></div>
       </div>
-      <div style="display: flex; flex-flow: row wrap;">
+      <div style="display: flex; flex-flow: row wrap;padding-bottom: 40px;">
         <div  *ngFor="let product of news" style="display: flex;margin: auto; margin-top: 20px;">
           <div style="position: relative; float:left; min-width:10px"></div>
           <app-product-card [product]="product"></app-product-card>

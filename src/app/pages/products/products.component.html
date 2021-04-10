@@ -2,16 +2,16 @@
 
   <div *ngIf="innerWidth > 850" class="leftDiv">
     <ul>
-      <li *ngFor="let category of categories" (click)="setCategory(category)">
-        <span [ngClass]="{'selected': getSelected(category)}">{{category}}</span>
+      <li *ngFor="let category of categories" (click)="setCategory(category)"  [ngClass]="{'selected': getSelected(category), 'item': !getSelected(category)}">
+        <span>{{category}}</span>
         <span class="spacer"></span>
-        <mat-icon *ngIf="selected===category" style="color: #5bcbff;">arrow_right_alt</mat-icon>
+        <mat-icon *ngIf="selected===category" style="color: #00aeff;">arrow_right_alt</mat-icon>
       </li>
     </ul>
   </div>
 
   <div class="rightDiv">
-    <div style="background-color: white;" *ngIf="innerWidth < 851">
+    <div *ngIf="innerWidth < 851">
       <mat-tab-group (selectedTabChange)="tabChanged($event)">
         <mat-tab *ngFor="let category of categories" label="{{category}}" (click)="setCategory(category)"></mat-tab>
       </mat-tab-group>

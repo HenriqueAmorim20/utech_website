@@ -4,8 +4,29 @@
 }
 
 .container {
-  width: 100%;
-  min-height: 100vh;
-  box-sizing: border-box;
+  min-height: 100%;
+  height: auto !important; /*min-height hack*/
+  height: 100%;            /*min-height hack*/
   overflow: hidden;
+  background-image: url('./../assets/background/background.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.container2{
+  min-height: 100%;
+  height: auto !important; /*min-height hack*/
+  height: 100%;            /*min-height hack*/
+  overflow: hidden;
+  background-image: url('./../assets/background/background_slim.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.body {
+  min-height: inherit;
+  height: auto !important; /*min-height hack*/
+  height: 100%;            /*min-height hack*/
 }

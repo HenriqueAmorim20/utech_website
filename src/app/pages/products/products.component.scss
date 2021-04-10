@@ -1,14 +1,14 @@
 .main {
   display: flex;
-  background-color: #e6e6e6;
+  background-color: transparent;
 }
 
 .leftDiv {
   min-width: 250px;
-  min-height: 430px;
+  min-height: 615px;
   margin: 10px;
   border-radius: 5px;
-  background-color: rgb(45, 45, 45);
+  background-color: rgba(45, 45, 45, 0.5);
   color: white;
   height: fit-content;
 }
@@ -19,20 +19,33 @@ ul {
   margin-left: -30px;
 }
 
-li {
+.item {
   display: flex;
   font-size: 19px;
-  padding: 20px ;
+  padding: 30px ;
   padding-left: 40px;
   padding-right: 40px;
   cursor: pointer;
   list-style: none;
+  transition: 0.7s all ease;
 }
 
-li:hover {
-  transition: 1s linear ease;
+.item:hover {
+  transition: 0.7s all ease;
   font-size: 22px;
-  color: #99d9ea;
+  color: #00aeff;
+}
+
+.selected {
+  display: flex;
+  padding: 30px ;
+  padding-left: 40px;
+  padding-right: 40px;
+  list-style: none;
+  transition: 0.7s all ease;
+  cursor: default !important;
+  font-size: 22px;
+  color: #00aeff;
 }
 
 .rightDiv {
@@ -43,7 +56,8 @@ li:hover {
   display: flex;
   align-items: center;
   margin: 10px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.701);
+  border-radius: 10px;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -51,19 +65,30 @@ li:hover {
 .bottom {
   display: flex;
   flex-flow: row wrap;
+  min-height: 510px;
   margin: 10px;
-  background-color: rgba(0, 0, 0, 0.089);
+  background-color: rgba(45, 45, 45, 0.5);
+  border-radius: 10px;
   padding: 10px;
-}
-::ng-deep .mat-ink-bar {
-  background-color: #5bcbff !important;
 }
 
 .spacer {
   flex: 1 1 auto;
 }
 
-.selected {
-  font-size: 22px;
-  color: #99d9ea;
+
+::ng-deep .mat-tab-group {
+  background-color: rgba(45, 45, 45, 0.247);
 }
+
+::ng-deep .mat-tab-label {
+  color: white;
+  font-weight: bolder;
+  font-size: 16px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+::ng-deep .mat-ink-bar {
+  background-color: white !important;
+}
+

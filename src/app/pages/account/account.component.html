@@ -102,12 +102,12 @@
           <mat-label>Confirme sua senha</mat-label>
           <input matInput placeholder="Senha" [type]="hide ? 'password' : 'text'" formControlName="confirmPassword" required>
           <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-      </mat-form-field>
+        </mat-form-field>
       </div>
       <mat-checkbox (change)="checkBox($event)">
         <p style="white-space: normal;"> Ao cadastrar-me, declaro que sou maior de idade e aceito as políticas de privacidade e os termos de uso.</p>
       </mat-checkbox>
-      <button type="submit">
+      <button type="submit" class="raise">
         Confirmar
       </button>
     </form>

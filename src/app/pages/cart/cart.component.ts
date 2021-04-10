@@ -10,7 +10,7 @@ export class CartComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    localStorage.setItem('currentPage', 'cart')
+    localStorage.setItem('currentPage', 'carrinho')
 
   }
 

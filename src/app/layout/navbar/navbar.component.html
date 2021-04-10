@@ -1,105 +1,72 @@
 <div class="main">
-  <mat-toolbar [ngClass]="{'navbar': !hide, 'hidden': hide}">
 
-    <img *ngIf="innerWidth > 850" src="assets/logos/logo.png" class="logo"  (click)="navigate('home')"/>
-    <img *ngIf="innerWidth < 851" src="assets/logos/slim_logo.png" class="logo"  (click)="navigate('home')"/>
-
-    <div *ngIf="innerWidth > 850" class="nav">
-
-      <ul>
-
-        <li class="menuItem " style="margin-left: 0;" (click)="navigate('home')">
-          <div style="display: flex; flex-direction: column; align-items: center; align-content: center; min-width: 90px;">
-            <mat-icon>home</mat-icon>
-            <span >Home</span>
+  <div style="width: 100%;" *ngIf="innerWidth > 850">
+    <mat-toolbar class="navbar">
+      <div *ngFor="let item of menu" [ngClass]="{'selected':  getCurrentPage(item.toLowerCase()), 'menuItem': !getCurrentPage(item.toLowerCase())}" (click)="navigate(item.toLowerCase())">
+        <div [ngClass]="{'border': getCurrentPage(item.toLowerCase()), 'border_slim': !getCurrentPage(item.toLowerCase())}"></div>
+          <div class="itemContent" [ngSwitch]="item">
+            <mat-icon *ngSwitchCase="'Home'">home</mat-icon>
+            <mat-icon *ngSwitchCase="'Produtos'">store</mat-icon>
+            <mat-icon *ngSwitchCase="'Info'">information</mat-icon>
+            <mat-icon *ngSwitchCase="'Conta'">account_circle</mat-icon>
+            <mat-icon style="margin-left: 15px;" *ngSwitchCase="'Carrinho'">shopping_cart</mat-icon>
+            <span style="margin-left: 10px; margin-top: 3px;">{{item}} <span *ngIf="item==='Carrinho'">({{cartCount}})</span></span>
           </div>
-          <div *ngIf="getCurrentPage('home')" class="border"></div>
-        </li>
+        </div>
+    </mat-toolbar>
 
-        <li class="menuItem " (click)="navigate('products')">
-          <div style="display: flex; flex-direction: column; align-items: center; align-content: center; min-width: 90px;">
-            <mat-icon>store</mat-icon>
-            <span>Produtos</span>
-          </div>
-          <div *ngIf="getCurrentPage('products')" class="border"></div>
-        </li>
-
-        <li class="menuItem " (click)="navigate('about')">
-          <div style="display: flex; flex-direction: column; align-items: center; align-content: center; min-width: 90px;">
-            <mat-icon>information</mat-icon>
-            <span>Info</span>
-          </div>
-
-          <div *ngIf="getCurrentPage('about')" class="border"></div>
-        </li>
-
-      </ul>
-
-      <div class="spacer"></div>
-
-      <ul>
-
-        <li class="menuItem " style="margin-left: 0;" (click)="navigate('account')">
-          <div style="display: flex; flex-direction: column; align-items: center; align-content: center; min-width: 90px;">
-            <mat-icon>account_circle</mat-icon>
-            <span>Conta</span>
-          </div>
-
-          <div *ngIf="getCurrentPage('account')" class="border"></div>
-        </li>
-
-        <li class="menuItem " (click)="navigate('cart')" style="margin-right: 10px;">
-          <div style="display: flex; flex-direction: column; align-items: center; align-content: center; min-width: 100px;">
-            <mat-icon>shopping_cart</mat-icon>
-            <span>Carrinho ({{cartCount}})</span>
-          </div>
-
-          <div *ngIf="getCurrentPage('cart')" class="border"></div>
-        </li>
-
-      </ul>
-
+    <div *ngIf="getCurrentPage('home')" class="subNav">
+      <span class="spacer"></span>
+      <form class="form" [formGroup]="searchForm">
+        <h4 style="font-weight: lighter; border-bottom: 3px solid black; width: fit-content;">Procurando por algo?</h4>
+        <div style="display: flex; margin-left: 10px; margin-top: 10px;">
+          <mat-icon style="margin-right: 10px; cursor: pointer;">search</mat-icon>
+          <input class="search" matInput formControlName="search" placeholder="Busca">
+        </div>
+      </form>
     </div>
-
-    <div *ngIf="innerWidth < 851" class="nav">
-      <div class="spacer"></div>
-      <button mat-button [matMenuTriggerFor]="menu">
-        <mat-icon class="menuIcon">menu</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu" class="dropDown">
-
-          <div style="border-bottom: 0.5px solid #e6e6e6;" mat-menu-item class="menuItem2" (click)="navigate('home')">
-            <mat-icon style="color: #e6e6e6;">home</mat-icon>
-            <span >Home</span>
-          </div>
-
-          <div style="border-bottom: 0.5px solid #e6e6e6;" mat-menu-item class="menuItem2" (click)="navigate('products')">
-            <mat-icon style="color: #e6e6e6;">store</mat-icon>
-            <span>Produtos</span>
-          </div>
-
-          <div style="border-bottom: 0.5px solid #e6e6e6;" mat-menu-item class="menuItem2" (click)="navigate('about')">
-            <mat-icon style="color: #e6e6e6;"> information</mat-icon>
-            <span>Info</span>
-          </div>
-
-          <div style="border-bottom: 0.5px solid #e6e6e6;" mat-menu-item class="menuItem2" (click)="navigate('account')">
-            <mat-icon style="color: #e6e6e6;">account_circle</mat-icon>
-            <span>Conta</span>
-          </div>
-
-          <div mat-menu-item class="menuItem2" (click)="navigate('cart')">
-            <mat-icon style="color: #e6e6e6;">shopping_cart</mat-icon>
-            <span>Carrinho ({{cartCount}})</span>
-          </div>
-
-      </mat-menu>
-    </div>
-
-  </mat-toolbar>
-   <div *ngIf="innerWidth > 850" (click)="toggleNavbar()" style=" cursor: pointer; width: 100%;z-index: 3; background-color: rgb(45, 45, 45); color: white;">
-    <mat-icon *ngIf="!hide" style="font-size: 30px; margin-left: 50%; padding-bottom: 5px;">keyboard_arrow_down</mat-icon>
-    <mat-icon *ngIf="hide" style="font-size: 30px; margin-left: 50%;">keyboard_arrow_up</mat-icon>
   </div>
+
+  <div style="width: 100%;" *ngIf="innerWidth < 851">
+    <div  class="nav">
+      <form  [formGroup]="searchForm">
+        <div style="display: flex; margin-left: 10px; margin-top: 10px;">
+          <input class="search" matInput formControlName="search" placeholder="Busca">
+          <mat-icon style="margin-left: 10px; cursor: pointer; color: white;">search</mat-icon>
+        </div>
+      </form>
+      <div class="spacer"></div>
+      <mat-icon class="menuIcon" (click)="showDropDown()">menu</mat-icon>
+    </div>
+
+    <div [ngClass]="{'dropDown': hide, 'hidden': !hide}">
+      <div class="menuItem2" (click)="navigate('home')">
+        <mat-icon style="color: #e6e6e6;">home</mat-icon>
+        <span >Home</span>
+      </div>
+
+      <div class="menuItem2" (click)="navigate('produtos')">
+        <mat-icon style="color: #e6e6e6;">store</mat-icon>
+        <span>Produtos</span>
+      </div>
+
+      <div class="menuItem2" (click)="navigate('info')">
+        <mat-icon style="color: #e6e6e6;"> information</mat-icon>
+        <span>Info</span>
+      </div>
+
+      <div class="menuItem2" (click)="navigate('conta')">
+        <mat-icon style="color: #e6e6e6;">account_circle</mat-icon>
+        <span>Conta</span>
+      </div>
+
+      <div class="menuItem2" (click)="navigate('carrinho')">
+        <mat-icon style="color: #e6e6e6;">shopping_cart</mat-icon>
+        <span>Carrinho ({{cartCount}})</span>
+      </div>
+    </div>
+
+  </div>
+
 </div>
 

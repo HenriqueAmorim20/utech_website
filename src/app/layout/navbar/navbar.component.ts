@@ -1,5 +1,8 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { CommonModule } from '@angular/common'
 import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-navbar',
@@ -12,12 +15,17 @@ export class NavbarComponent implements OnInit {
   changeScreen: boolean = false;
   innerWidth: any;
   hide: any = false;
+  menu = ['Home', 'Produtos', 'Info', 'Conta', 'Carrinho'];
+  searchForm: FormGroup = new FormGroup({
+    search: new FormControl(''),
+  });
 
   constructor(private router: Router) { }
 
 
   ngOnInit() {
       this.innerWidth = window.innerWidth;
+      console.log('aqui', window.innerHeight)
   }
 
   @HostListener('window:resize', ['$event'])
@@ -28,6 +36,7 @@ export class NavbarComponent implements OnInit {
   }
 
   navigate(value: any){
+    this.hide = false
     this.router.navigate([value])
   }
 
@@ -35,7 +44,7 @@ export class NavbarComponent implements OnInit {
     return localStorage.getItem("currentPage") === value
   }
 
-  toggleNavbar(){
+  showDropDown(){
     this.hide = !this.hide
   }
 }
