@@ -2,17 +2,29 @@
 
   <div style="width: 100%;" *ngIf="innerWidth > 850">
     <mat-toolbar class="navbar">
-      <div *ngFor="let item of menu" [ngClass]="{'selected':  getCurrentPage(item.toLowerCase()), 'menuItem': !getCurrentPage(item.toLowerCase())}" (click)="navigate(item.toLowerCase())">
-        <div [ngClass]="{'border': getCurrentPage(item.toLowerCase()), 'border_slim': !getCurrentPage(item.toLowerCase())}"></div>
-          <div class="itemContent" [ngSwitch]="item">
-            <mat-icon *ngSwitchCase="'Home'">home</mat-icon>
-            <mat-icon *ngSwitchCase="'Produtos'">store</mat-icon>
-            <mat-icon *ngSwitchCase="'Info'">information</mat-icon>
-            <mat-icon *ngSwitchCase="'Conta'">account_circle</mat-icon>
-            <mat-icon style="margin-left: 15px;" *ngSwitchCase="'Carrinho'">shopping_cart</mat-icon>
-            <span style="margin-left: 10px; margin-top: 3px;">{{item}} <span *ngIf="item==='Carrinho'">({{cartCount}})</span></span>
+      <div style="display: flex; flex-direction: row;">
+        <div *ngFor="let item of menu" [ngClass]="{'selected':  getCurrentPage(item.toLowerCase()), 'menuItem': !getCurrentPage(item.toLowerCase())}" (click)="navigate(item.toLowerCase())">
+          <div [ngClass]="{'border': getCurrentPage(item.toLowerCase()), 'border_slim': !getCurrentPage(item.toLowerCase())}"></div>
+            <div class="itemContent" [ngSwitch]="item">
+              <mat-icon *ngSwitchCase="'Home'">home</mat-icon>
+              <mat-icon *ngSwitchCase="'Produtos'">store</mat-icon>
+              <mat-icon *ngSwitchCase="'Info'">information</mat-icon>
+              <mat-icon *ngSwitchCase="'Conta'">account_circle</mat-icon>
+              <mat-icon style="margin-left: 15px;" *ngSwitchCase="'Carrinho'">shopping_cart</mat-icon>
+              <span style="margin-left: 10px; margin-top: 3px;">{{item}} <span *ngIf="item==='Carrinho'">({{cartCount}})</span></span>
+            </div>
           </div>
-        </div>
+      </div>
+
+      <div *ngIf="!getCurrentPage('home')">
+        <form  [formGroup]="searchForm">
+          <div style="display: flex; margin-left: 10px; margin-top: 10px;">
+            <mat-icon style="margin-right: 10px; cursor: pointer;">search</mat-icon>
+            <input class="search2" matInput formControlName="search" placeholder="Busca">
+          </div>
+        </form>
+      </div>
+
     </mat-toolbar>
 
     <div *ngIf="getCurrentPage('home')" class="subNav">
@@ -27,7 +39,7 @@
     </div>
   </div>
 
-  <div style="width: 100%;" *ngIf="innerWidth < 851">
+  <div style="width: 100%; margin-bottom: 30px;" *ngIf="innerWidth < 851">
     <div  class="nav">
       <form  [formGroup]="searchForm">
         <div style="display: flex; margin-left: 10px; margin-top: 10px;">
