@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
   changeScreen: boolean = false;
   innerWidth: any;
   hide: any = false;
-  menu = ['Home', 'Produtos', 'Info', 'Conta', 'Carrinho'];
+  menu = ['Home', 'Produtos', 'Conta', 'Carrinho'];
   searchForm: FormGroup = new FormGroup({
     search: new FormControl(''),
   });
@@ -25,7 +25,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
       this.innerWidth = window.innerWidth;
-      console.log('aqui', window.innerHeight)
   }
 
   @HostListener('window:resize', ['$event'])

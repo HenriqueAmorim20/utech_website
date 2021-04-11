@@ -1,6 +1,18 @@
 <div class="main">
 
-  <div style="width: 100%;" *ngIf="innerWidth > 850">
+  <div style="width: 100%; margin-top: 10px; margin-bottom: 5px;" *ngIf="innerWidth > 850">
+    <div style="width: 100%; align-items: center; display: flex; flex-direction: column;background: rgba(45, 45, 45, 0.247);">
+      <div style="display: flex; align-items: center; margin-bottom: -30px;">
+        <h1 style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">UTECH STORE</h1>
+        <div *ngIf="!getCurrentPage('home')">
+          <form  [formGroup]="searchForm">
+            <div style="display: flex; margin-left: 10px; margin-left: 30px;">
+              <input class="search2" matInput formControlName="search" placeholder="Busca">
+              <mat-icon style="margin-left: 10px; cursor: pointer;">search</mat-icon>
+            </div>
+          </form>
+        </div>
+      </div>
     <mat-toolbar class="navbar">
       <div style="display: flex; flex-direction: row;">
         <div *ngFor="let item of menu" [ngClass]="{'selected':  getCurrentPage(item.toLowerCase()), 'menuItem': !getCurrentPage(item.toLowerCase())}" (click)="navigate(item.toLowerCase())">
@@ -8,24 +20,15 @@
             <div class="itemContent" [ngSwitch]="item">
               <mat-icon *ngSwitchCase="'Home'">home</mat-icon>
               <mat-icon *ngSwitchCase="'Produtos'">store</mat-icon>
-              <mat-icon *ngSwitchCase="'Info'">information</mat-icon>
               <mat-icon *ngSwitchCase="'Conta'">account_circle</mat-icon>
               <mat-icon style="margin-left: 15px;" *ngSwitchCase="'Carrinho'">shopping_cart</mat-icon>
               <span style="margin-left: 10px; margin-top: 3px;">{{item}} <span *ngIf="item==='Carrinho'">({{cartCount}})</span></span>
             </div>
           </div>
       </div>
-
-      <div *ngIf="!getCurrentPage('home')">
-        <form  [formGroup]="searchForm">
-          <div style="display: flex; margin-left: 10px; margin-top: 10px;">
-            <mat-icon style="margin-right: 10px; cursor: pointer;">search</mat-icon>
-            <input class="search2" matInput formControlName="search" placeholder="Busca">
-          </div>
-        </form>
-      </div>
-
     </mat-toolbar>
+    </div>
+
 
     <div *ngIf="getCurrentPage('home')" class="subNav">
       <span class="spacer"></span>
@@ -39,7 +42,8 @@
     </div>
   </div>
 
-  <div style="width: 100%; margin-bottom: 30px;" *ngIf="innerWidth < 851">
+  <div style="width: 100%; align-items: center; display: flex; flex-direction: column; background: rgba(45, 45, 45, 0.5);" *ngIf="innerWidth < 851">
+    <h2 style="color: white;">UTECH STORE</h2>
     <div  class="nav">
       <form  [formGroup]="searchForm">
         <div style="display: flex; margin-left: 10px; margin-top: 10px;">
@@ -62,10 +66,10 @@
         <span>Produtos</span>
       </div>
 
-      <div class="menuItem2" (click)="navigate('info')">
+      <!-- <div class="menuItem2" (click)="navigate('info')">
         <mat-icon style="color: #e6e6e6;"> information</mat-icon>
         <span>Info</span>
-      </div>
+      </div> -->
 
       <div class="menuItem2" (click)="navigate('conta')">
         <mat-icon style="color: #e6e6e6;">account_circle</mat-icon>

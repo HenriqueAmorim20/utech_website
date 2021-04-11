@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -9,7 +10,7 @@ export class FooterComponent implements OnInit {
   data: any;
   innerWidth:any;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
     const currentdate = new Date();
@@ -21,5 +22,10 @@ export class FooterComponent implements OnInit {
   onResize(event: any) {
   this.innerWidth = event.target.innerWidth;
   }
+
+  navigate(value:any){
+    this.router.navigate([value])
+  }
+
 }
 

@@ -22,6 +22,7 @@ export class ProductsComponent implements OnInit {
   categories: any;
   allProducts: any;
   products: any;
+  selectedCategory: any;
 
   constructor() { }
 
@@ -44,35 +45,35 @@ export class ProductsComponent implements OnInit {
           price: 9099.00,
           imgSrc: "macbookair.png",
           id: "2",
-          category: "PCs"
+          category: "SmartWatch"
         },
         {
           title: 'MacBook Pro 13” (2020) Space Gray Touch Bar/ID - Processador M1 / 8GB / 256GB SSD',
           price: 11099.00,
           imgSrc: "macbookpro.png",
           id: "3",
-          category: "PCs"
+          category: "SmartPhone"
         },
         {
           title: "iPad 8˚Geração Cinza espacial 128GB Wifi",
           price: 3599.00,
           imgSrc: "ipad.png",
           id: "4",
-          category: "PCs"
+          category: "Periféricos"
         },
         {
           title: 'iPad Pro (2020) 11" 2ª Geração Cinza-Espacial 128GB Wi-Fi',
           price: 6999.00,
           imgSrc: "ipadpro.png",
           id: "1",
-          category: "PCs"
+          category: "SSDs e HDs"
         },
         {
           title: 'Macbook Air 13" (2020) Cinza-Espacial / Processador M1 / 8GB / 256GB SSD',
           price: 9099.00,
           imgSrc: "macbookair.png",
           id: "2",
-          category: "PCs"
+          category: "Ipads"
         },
         {
           title: 'MacBook Pro 13” (2020) Space Gray Touch Bar/ID - Processador M1 / 8GB / 256GB SSD',
@@ -92,7 +93,7 @@ export class ProductsComponent implements OnInit {
     } catch (error) {
       console.log(error)
     }
-    this.setCategory(this.categories[0])
+    this.products = this.allProducts
   }
 
   @HostListener('window: resize', ['$event'])
@@ -129,9 +130,5 @@ export class ProductsComponent implements OnInit {
 
   getSelected(value: any){
     return this.selected === value;
-  }
-
-  tabChanged(tabChangeEvent: MatTabChangeEvent): void {
-    this.setCategory(this.categories[tabChangeEvent.index])
   }
 }
