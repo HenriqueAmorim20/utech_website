@@ -15,10 +15,11 @@ export class NavbarComponent implements OnInit {
   changeScreen: boolean = false;
   innerWidth: any;
   hide: any = false;
-  menu = ['Home', 'Produtos', 'Conta', 'Carrinho'];
+  menu = ['Home', 'Conta', 'Carrinho'];
   searchForm: FormGroup = new FormGroup({
     search: new FormControl(''),
   });
+  test: any = false;
 
   constructor(private router: Router) { }
 
@@ -45,5 +46,10 @@ export class NavbarComponent implements OnInit {
 
   showDropDown(){
     this.hide = !this.hide
+  }
+
+  teste(value:any){
+    console.log(value)
+    this.test = value
   }
 }

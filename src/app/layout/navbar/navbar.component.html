@@ -1,36 +1,62 @@
 <div class="main">
 
-  <div style="width: 100%; margin-top: 10px; margin-bottom: 5px;" *ngIf="innerWidth > 850">
-    <div style="width: 100%; align-items: center; display: flex; flex-direction: column;background: rgba(45, 45, 45, 0.247);">
-      <div style="display: flex; align-items: center; margin-bottom: -30px;">
-        <h1 style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">UTECH STORE</h1>
-        <div *ngIf="!getCurrentPage('home')">
-          <form  [formGroup]="searchForm">
-            <div style="display: flex; margin-left: 10px; margin-left: 30px;">
-              <input class="search2" matInput formControlName="search" placeholder="Busca">
-              <mat-icon style="margin-left: 10px; cursor: pointer;">search</mat-icon>
-            </div>
-          </form>
-        </div>
-      </div>
+  <div style="width: 100%; margin-top: 10px; margin-bottom: 5px; background-color: rgba(45, 45, 45, 0.35);" *ngIf="innerWidth > 850">
+
     <mat-toolbar class="navbar">
-      <div style="display: flex; flex-direction: row;">
-        <div *ngFor="let item of menu" [ngClass]="{'selected':  getCurrentPage(item.toLowerCase()), 'menuItem': !getCurrentPage(item.toLowerCase())}" (click)="navigate(item.toLowerCase())">
-          <div [ngClass]="{'border': getCurrentPage(item.toLowerCase()), 'border_slim': !getCurrentPage(item.toLowerCase())}"></div>
-            <div class="itemContent" [ngSwitch]="item">
-              <mat-icon *ngSwitchCase="'Home'">home</mat-icon>
-              <mat-icon *ngSwitchCase="'Produtos'">store</mat-icon>
-              <mat-icon *ngSwitchCase="'Conta'">account_circle</mat-icon>
-              <mat-icon style="margin-left: 15px;" *ngSwitchCase="'Carrinho'">shopping_cart</mat-icon>
-              <span style="margin-left: 10px; margin-top: 3px;">{{item}} <span *ngIf="item==='Carrinho'">({{cartCount}})</span></span>
-            </div>
-          </div>
+      <div [ngClass]="{'selected': getCurrentPage('home'), 'menuItem': !getCurrentPage('home')}" (click)="navigate('home')">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </div>
+      <div (mouseover)="teste(true);" (mouseout)="teste(false)" [ngClass]="{'selected': getCurrentPage('produtos'), 'menuItem': !getCurrentPage('produtos')}" (click)="navigate('produtos')">
+        <mat-icon [ngClass]="{'products-icon': test&&!getCurrentPage('produtos')}">store</mat-icon>
+        <span [ngClass]="{'products': test&&!getCurrentPage('produtos')}">Produtos</span>
+      </div>
+      <form  [formGroup]="searchForm">
+        <div style="display: flex; margin-left: 10px; margin-left: 30px;">
+          <input class="search2" matInput formControlName="search" placeholder="Busca">
+          <mat-icon style="margin-left: 10px; cursor: pointer;">search</mat-icon>
+        </div>
+      </form>
+      <div [ngClass]="{'selected': getCurrentPage('conta'), 'menuItem': !getCurrentPage('conta')}" (click)="navigate('conta')">
+        <mat-icon>account_circle</mat-icon>
+        <span>Conta</span>
+      </div>
+      <div [ngClass]="{'selected': getCurrentPage('carrinho'), 'menuItem': !getCurrentPage('carrinho')}" (click)="navigate('carrinho')">
+        <mat-icon>shopping_cart</mat-icon>
+        <span>Carrinho ({{cartCount}})</span>
       </div>
     </mat-toolbar>
+    <div *ngIf="!getCurrentPage('produtos')" [ngClass]="{'dropdown': test, 'dropdown-hidden': !test}" (mouseover)="teste(true)" (mouseout)="teste(false)">
+      <div class="dropdown-content"  >
+        <div class="dropdown-item">
+          <mat-icon >computer</mat-icon>
+          <span>PCs</span>
+        </div >
+        <div class="dropdown-item">
+          <mat-icon >watch</mat-icon>
+          <span>SmartWatch</span>
+        </div >
+        <div class="dropdown-item">
+          <mat-icon >smartphone</mat-icon>
+          <span>SmartPhone</span>
+        </div >
+        <div class="dropdown-item">
+          <mat-icon >keyboard</mat-icon>
+          <span>Periféricos</span>
+        </div >
+        <div class="dropdown-item">
+          <mat-icon >tablet</mat-icon>
+          <span>Ipads</span>
+        </div >
+        <div class="dropdown-item">
+          <mat-icon >storage</mat-icon>
+          <span>SSDs e HDs</span>
+        </div >
+      </div>
     </div>
 
 
-    <div *ngIf="getCurrentPage('home')" class="subNav">
+    <!-- <div *ngIf="getCurrentPage('home')" class="subNav">
       <span class="spacer"></span>
       <form class="form" [formGroup]="searchForm">
         <h4 style="font-weight: lighter; border-bottom: 3px solid black; width: fit-content;">Procurando por algo?</h4>
@@ -39,7 +65,7 @@
           <input class="search" matInput formControlName="search" placeholder="Busca">
         </div>
       </form>
-    </div>
+    </div> -->
   </div>
 
   <div style="width: 100%; align-items: center; display: flex; flex-direction: column; background: rgba(45, 45, 45, 0.5);" *ngIf="innerWidth < 851">

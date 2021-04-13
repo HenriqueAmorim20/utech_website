@@ -10,18 +10,11 @@
   height: fit-content;
   width: 100%;
   display:flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   padding: 15px;
   margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.subNav{
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  height: 200px;
+  margin-bottom: 10px;
 }
 
 .nav{
@@ -72,16 +65,30 @@
 }
 
 .menuItem {
-  list-style: none;
-  width: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
   cursor: pointer;
   margin: 0px 20px 0px;
   font-size: 14px;
   color: black;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  align-items: center;
-  justify-content: center;
   transition: 0.5s all ease;
+}
+
+.selected {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+  width: 120px;
+  margin: 0px 20px 0px;
+  font-size: 14px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: white;
+  transition: 0.5s all ease;
+  border-top: 2px solid white;
 }
 
 .menuItem:hover {
@@ -89,25 +96,54 @@
   color: white;
 }
 
-.selected {
-  transition: 0.5s all ease;
-  list-style: none;
-  width: 110px;
-  cursor: pointer;
-  margin: 0px 20px 0px;
-  font-size: 14px;
-  color: white;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  align-items: center;
-  justify-content: center;
+.dropdown {
+  background-color: transparent;
+  padding-top: 25px;
+  margin-top: -25px;
 }
 
-.itemContent {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+.dropdown-hidden {
+  display: none;
 }
+
+.dropdown-content {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  margin-left: 0.4%;
+  background-color: rgba(255, 255, 255, 0.685);
+  width: 98%;
+  padding: 10px;
+}
+
+.dropdown-item {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 30px 10px;
+  transition: 0.5s all ease;
+}
+
+.dropdown-item:hover {
+  color:#3288af;
+  font-size: 18px;
+  transition: 0.5s all ease;
+}
+
+.products {
+  font-size: 18px;
+  color: white;
+  transition: 0.5s all ease;
+}
+
+.products-icon {
+  // font-size: 18px;
+  color: white;
+  transition: 0.5s all ease;
+}
+
 
 .menuItem2 {
   cursor: pointer;
@@ -126,21 +162,6 @@
 
 .spacer {
   flex: 1 1 auto;
-}
-
-.border {
-  width: 110%;
-  height: 2px;
-  background-color: white;
-}
-
-.border_slim {
-  width: 110%;
-  height: 0.2px;
-}
-
-mat-icon {
-  vertical-align: middle;
 }
 
 .dropDown {
@@ -162,3 +183,7 @@ mat-icon {
 }
 
 
+mat-icon {
+  margin-right: 10px;
+  margin-left: -7px;
+}
