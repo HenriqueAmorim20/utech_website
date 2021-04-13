@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -23,12 +24,16 @@ export class ProductsComponent implements OnInit {
   allProducts: any;
   products: any;
   selectedCategory: any;
+  queryParam: any;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     localStorage.setItem('currentPage', 'produtos')
     this.innerWidth = window.innerWidth
+    this.route.queryParams.subscribe(params => {
+      this.queryParam = params['category'];
+    });
     try {
       //Fazer o get das categorias e dos produtos
       this.categories = ['PCs', 'SmartWatch', 'SmartPhone', 'Periféricos', 'Ipads', 'SSDs e HDs']
@@ -93,7 +98,10 @@ export class ProductsComponent implements OnInit {
     } catch (error) {
       console.log(error)
     }
-    this.products = this.allProducts
+    if(this.queryParam){
+      this.setCategory(this.queryParam)
+    }
+    else this.products = this.allProducts
   }
 
   @HostListener('window: resize', ['$event'])

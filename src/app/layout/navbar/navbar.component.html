@@ -28,27 +28,27 @@
     </mat-toolbar>
     <div *ngIf="!getCurrentPage('produtos')" [ngClass]="{'dropdown': test, 'dropdown-hidden': !test}" (mouseover)="teste(true)" (mouseout)="teste(false)">
       <div class="dropdown-content"  >
-        <div class="dropdown-item">
+        <div class="dropdown-item" (click)="navToCategory('PCs')">
           <mat-icon >computer</mat-icon>
           <span>PCs</span>
         </div >
-        <div class="dropdown-item">
+        <div class="dropdown-item" (click)="navToCategory('SmartWatch')">
           <mat-icon >watch</mat-icon>
           <span>SmartWatch</span>
         </div >
-        <div class="dropdown-item">
+        <div class="dropdown-item" (click)="navToCategory('SmartPhone')">
           <mat-icon >smartphone</mat-icon>
           <span>SmartPhone</span>
         </div >
-        <div class="dropdown-item">
+        <div class="dropdown-item" (click)="navToCategory('Periféricos')">
           <mat-icon >keyboard</mat-icon>
           <span>Periféricos</span>
         </div >
-        <div class="dropdown-item">
+        <div class="dropdown-item" (click)="navToCategory('Ipads')">
           <mat-icon >tablet</mat-icon>
           <span>Ipads</span>
         </div >
-        <div class="dropdown-item">
+        <div class="dropdown-item" (click)="navToCategory('SSDs e HDs')">
           <mat-icon >storage</mat-icon>
           <span>SSDs e HDs</span>
         </div >

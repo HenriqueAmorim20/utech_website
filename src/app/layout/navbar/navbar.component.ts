@@ -40,6 +40,10 @@ export class NavbarComponent implements OnInit {
     this.router.navigate([value])
   }
 
+  navToCategory(value: any){
+    this.router.navigate(['produtos'],{ queryParams: {category: value}})
+  }
+
   getCurrentPage(value: any){
     return localStorage.getItem("currentPage") === value
   }
