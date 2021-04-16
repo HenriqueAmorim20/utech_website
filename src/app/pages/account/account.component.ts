@@ -59,7 +59,7 @@ export class AccountComponent implements OnInit {
     this.loginForm.reset();
   }
 
-  register(){
+  async register(){
     if(this.check === false){
       this.snackBar.open("Aceite os termos de uso e política de privacidade!", "dismiss",{duration: 3000})
       return
@@ -73,8 +73,15 @@ export class AccountComponent implements OnInit {
       return
     }
     try {
-      console.log(this.registerForm)
-      // this.accountService.postUser(this.registerForm.value)
+      console.log(this.registerForm.value)
+      const response = await this.accountService.postUser({
+        name: this.registerForm.value.name,
+        cpf: this.registerForm.value.cpf,
+        email: this.registerForm.value.email,
+        phone: this.registerForm.value.phone,
+        password: this.registerForm.value.password,
+      }).toPromise()
+      console.log(response)
       this.snackBar.open("Cadastro efetuado com sucesso!", "dismiss",{duration: 3000})
       setTimeout(()=>{
         this.recover = false,

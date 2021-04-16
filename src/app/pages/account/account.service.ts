@@ -13,11 +13,11 @@ export class AccountService  {
     constructor(private httpClient: HttpClient){}
 
     getUsers(): Observable<Array<any>> {
-      return this.httpClient.get<Array<any>>('/');
+      return this.httpClient.get<Array<any>>('users');
     }
 
     postUser(request: {name: string, cpf: string, email: string, phone: string, password: string}) {
-      return this.httpClient.post('/', request).pipe(catchError((err) => of(err.error.message)));
+      return this.httpClient.post('users', request).pipe(catchError((err) => of(err.error.message)));
     }
 
 }
