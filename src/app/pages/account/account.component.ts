@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { AccountService } from './account.service';
 
 
 @Component({
@@ -40,7 +41,7 @@ export class AccountComponent implements OnInit {
   teste: boolean = true;
 
 
-  constructor(private snackBar: MatSnackBar, private router: Router) { }
+  constructor(private snackBar: MatSnackBar, private router: Router, private accountService: AccountService) { }
 
   ngOnInit(): void {
     localStorage.setItem('currentPage', 'conta')
@@ -51,7 +52,6 @@ export class AccountComponent implements OnInit {
       return
     }
     try {
-      console.log(this.loginForm.value);
       //implementar post no bando
     } catch (error) {
       this.snackBar.open("Email ou senha inválidos!", "dismiss",{duration: 3000})
@@ -73,8 +73,8 @@ export class AccountComponent implements OnInit {
       return
     }
     try {
-      console.log(this.registerForm.value);
-      //implementar post no banco
+      console.log(this.registerForm)
+      // this.accountService.postUser(this.registerForm.value)
       this.snackBar.open("Cadastro efetuado com sucesso!", "dismiss",{duration: 3000})
       setTimeout(()=>{
         this.recover = false,
@@ -87,13 +87,11 @@ export class AccountComponent implements OnInit {
   }
 
   recoverPassword(){
-    console.log(this.recoverForm.value.email_recover)
     if(this.recoverForm.value.email_recover === "") {
       this.snackBar.open("Campos inválidos, preencha corretamente!", "dismiss",{duration: 3000})
       return
     }
     try {
-      console.log(this.recoverForm.value);
       //Enviar email de recuparação
       this.snackBar.open("Um email de recuperação foi enviado para você!", "dismiss",{duration: 3000})
       setTimeout(()=>{

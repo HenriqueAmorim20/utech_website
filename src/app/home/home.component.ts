@@ -101,32 +101,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     localStorage.setItem("currentPage", "home")
-    this.startTimer()
     this.innerWidth = window.innerWidth;
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
   this.innerWidth = event.target.innerWidth;
-  }
-
-  startTimer(){
-    this.timer = setInterval(() =>{
-      this.cImage('next')
-    },5000)
-  }
-
-  cImage(value?: string){
-    clearInterval(this.timer)
-    this.startTimer();
-    // console.log('change', this.timer)
-    if(value==='next'){
-      if(this.i<this.images.length - 1) this.i+=1
-      else this.i = 0
-      return
-    }
-    if(this.i>0) this.i-=1
-    else this.i=this.images.length - 1
   }
 
 }

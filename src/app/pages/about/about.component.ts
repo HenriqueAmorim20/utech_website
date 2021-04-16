@@ -36,7 +36,6 @@ export class AboutComponent implements OnInit {
       return
     }
     try {
-      console.log(this.checkoutForm.value);
       //implementar post no banco
       this.snackBar.open("Mensagem enviada com sucesso, obrigado! Redirecionando para home.", "dismiss",{duration: 5000})
       setTimeout( () => {this.router.navigate(['home'])}, 3000)

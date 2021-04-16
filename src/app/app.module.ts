@@ -13,6 +13,7 @@ import { ProductsComponent } from './pages/products/products.component';
 import { AccountComponent } from './pages/account/account.component';
 import { SharedModule } from './@shared/shared.module'
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     AccountComponent
   ],
   imports: [
+    HttpClient,
     FormsModule,
     ReactiveFormsModule,
     SharedModule,

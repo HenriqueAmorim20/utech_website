@@ -19,8 +19,6 @@ export class NavbarComponent implements OnInit {
   searchForm: FormGroup = new FormGroup({
     search: new FormControl(''),
   });
-  test: any = false;
-
   constructor(private router: Router) { }
 
 
@@ -52,8 +50,7 @@ export class NavbarComponent implements OnInit {
     this.hide = !this.hide
   }
 
-  teste(value:any){
-    console.log(value)
-    this.test = value
+  showCategories(value:any){
+    this.hide = value
   }
 }

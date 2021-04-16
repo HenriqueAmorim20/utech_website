@@ -1,19 +1,18 @@
 <div class="main">
 
-  <div style="width: 100%; margin-top: 10px; margin-bottom: 5px; background-color: rgba(45, 45, 45, 0.35);" *ngIf="innerWidth > 850">
-
+  <div style="width: 100%; margin-top: 10px; margin-bottom: 5px; background-color: rgba(45, 45, 45, 0.35); display: flex; flex-direction: column; justify-content: center;" *ngIf="innerWidth > 850">
     <mat-toolbar class="navbar">
       <div [ngClass]="{'selected': getCurrentPage('home'), 'menuItem': !getCurrentPage('home')}" (click)="navigate('home')">
         <mat-icon>home</mat-icon>
         <span>Home</span>
       </div>
-      <div (mouseover)="teste(true);" (mouseout)="teste(false)" [ngClass]="{'selected': getCurrentPage('produtos'), 'menuItem': !getCurrentPage('produtos')}" (click)="navigate('produtos')">
-        <mat-icon [ngClass]="{'products-icon': test&&!getCurrentPage('produtos')}">store</mat-icon>
-        <span [ngClass]="{'products': test&&!getCurrentPage('produtos')}">Produtos</span>
+      <div (mouseover)="showCategories(true);" (mouseout)="showCategories(false)" [ngClass]="{'selected': getCurrentPage('produtos'), 'menuItem': !getCurrentPage('produtos')}" (click)="navigate('produtos')">
+        <mat-icon [ngClass]="{'products-icon': hide&&!getCurrentPage('produtos')}">store</mat-icon>
+        <span [ngClass]="{'products': hide&&!getCurrentPage('produtos')}">Produtos</span>
       </div>
       <form  [formGroup]="searchForm">
-        <div style="display: flex; margin-left: 10px; margin-left: 30px;">
-          <input class="search2" matInput formControlName="search" placeholder="Busca">
+        <div style="display: flex; width: 300px;">
+          <input class="search" matInput formControlName="search" placeholder="Busca">
           <mat-icon style="margin-left: 10px; cursor: pointer;">search</mat-icon>
         </div>
       </form>
@@ -26,7 +25,7 @@
         <span>Carrinho ({{cartCount}})</span>
       </div>
     </mat-toolbar>
-    <div *ngIf="!getCurrentPage('produtos')" [ngClass]="{'dropdown': test, 'dropdown-hidden': !test}" (mouseover)="teste(true)" (mouseout)="teste(false)">
+    <div *ngIf="!getCurrentPage('produtos')" [ngClass]="{'dropdown': hide, 'dropdown-hidden': !hide}" (mouseover)="showCategories(true)" (mouseout)="showCategories(false)">
       <div class="dropdown-content"  >
         <div class="dropdown-item" (click)="navToCategory('PCs')">
           <mat-icon >computer</mat-icon>
@@ -54,18 +53,6 @@
         </div >
       </div>
     </div>
-
-
-    <!-- <div *ngIf="getCurrentPage('home')" class="subNav">
-      <span class="spacer"></span>
-      <form class="form" [formGroup]="searchForm">
-        <h4 style="font-weight: lighter; border-bottom: 3px solid black; width: fit-content;">Procurando por algo?</h4>
-        <div style="display: flex; margin-left: 10px; margin-top: 10px;">
-          <mat-icon style="margin-right: 10px; cursor: pointer;">search</mat-icon>
-          <input class="search" matInput formControlName="search" placeholder="Busca">
-        </div>
-      </form>
-    </div> -->
   </div>
 
   <div style="width: 100%; align-items: center; display: flex; flex-direction: column; background: rgba(45, 45, 45, 0.5);" *ngIf="innerWidth < 851">
@@ -82,28 +69,24 @@
     </div>
 
     <div [ngClass]="{'dropDown': hide, 'hidden': !hide}">
+
       <div class="menuItem2" (click)="navigate('home')">
-        <mat-icon style="color: #e6e6e6;">home</mat-icon>
+        <mat-icon style="color: #e6e6e6; margin: 0px;">home</mat-icon>
         <span >Home</span>
       </div>
 
       <div class="menuItem2" (click)="navigate('produtos')">
-        <mat-icon style="color: #e6e6e6;">store</mat-icon>
+        <mat-icon style="color: #e6e6e6; margin: 0px;">store</mat-icon>
         <span>Produtos</span>
       </div>
 
-      <!-- <div class="menuItem2" (click)="navigate('info')">
-        <mat-icon style="color: #e6e6e6;"> information</mat-icon>
-        <span>Info</span>
-      </div> -->
-
       <div class="menuItem2" (click)="navigate('conta')">
-        <mat-icon style="color: #e6e6e6;">account_circle</mat-icon>
+        <mat-icon style="color: #e6e6e6; margin: 0px;">account_circle</mat-icon>
         <span>Conta</span>
       </div>
 
       <div class="menuItem2" (click)="navigate('carrinho')">
-        <mat-icon style="color: #e6e6e6;">shopping_cart</mat-icon>
+        <mat-icon style="color: #e6e6e6; margin: 0px;">shopping_cart</mat-icon>
         <span>Carrinho ({{cartCount}})</span>
       </div>
     </div>
