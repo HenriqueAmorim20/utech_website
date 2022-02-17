@@ -1,7 +1,12 @@
-<div class="window">
-  <app-navbar></app-navbar>
-  <div class="body-container">
-    <router-outlet></router-outlet>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div [ngClass]="{'container': innerWidth > 850, 'container2': innerWidth < 851}">
+    <app-navbar></app-navbar>
+    <div class="body">
+      <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
   </div>
-  <app-footer></app-footer>
-</div>
+</body>

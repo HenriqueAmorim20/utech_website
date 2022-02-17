@@ -1,0 +1,171 @@
+.main{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar {
+  background: transparent;
+  height: fit-content;
+  width: 100%;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 15px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.nav{
+  height: 60px;
+  width: 100%;
+  display:flex;
+  margin-top: -15px;
+  padding:0px 0px 20px;
+  justify-content: center;
+}
+
+.search {
+  outline: none;
+  border: none;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.829);
+  font-size: 14px;
+  width: 100%;
+  height: 15px;
+  padding: 5px;
+}
+
+
+.menuIcon {
+  margin-top: 8px;
+  margin-right: 15px;
+  cursor: pointer;
+  color: white;
+}
+
+.menuItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  cursor: pointer;
+  margin: 0px 20px 0px;
+  font-size: 14px;
+  color: black;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  transition: 0.5s all ease;
+}
+
+.selected {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+  width: 120px;
+  margin: 0px 20px 0px;
+  font-size: 14px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: white;
+  transition: 0.5s all ease;
+  border-top: 2px solid white;
+}
+
+.menuItem:hover {
+  font-size: 18px;
+  color: white;
+}
+
+.dropdown {
+  background-color: transparent;
+  padding-top: 25px;
+  margin-top: -25px;
+}
+
+.dropdown-hidden {
+  display: none;
+}
+
+.dropdown-content {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  margin-left: 0.4%;
+  background-color: rgba(255, 255, 255, 0.685);
+  width: 98%;
+  padding: 10px;
+}
+
+.dropdown-item {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 30px 10px;
+  transition: 0.5s all ease;
+}
+
+.dropdown-item:hover {
+  color:#3288af;
+  font-size: 18px;
+  transition: 0.5s all ease;
+}
+
+.products {
+  font-size: 18px;
+  color: white;
+  transition: 0.5s all ease;
+}
+
+.products-icon {
+  // font-size: 18px;
+  color: white;
+  transition: 0.5s all ease;
+}
+
+
+.menuItem2 {
+  cursor: pointer;
+  margin: 0px 0px 20px;
+  font-size: 15px;
+  width: 100%;
+  color: white;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: middle;
+  justify-content: center;
+}
+
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.dropDown {
+  margin-top: -25px;
+  padding: 10px;
+  display: flex;
+  flex-flow: wrap;
+  background: transparent;
+  opacity: 1;
+  transition: 1s all ease;
+}
+
+.hidden {
+  margin-right: -1000px;
+  margin-top: -300px;
+  visibility: hidden;
+  opacity: 0;
+  transition: 1s all ease;
+}
+
+
+mat-icon {
+  margin-right: 10px;
+  margin-left: -7px;
+}

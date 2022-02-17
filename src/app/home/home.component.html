@@ -1,0 +1,33 @@
+<div [@fade]="'in'">
+
+  <div class="main" [ngClass]="{'main': innerWidth > 850, 'main2': innerWidth < 851}">
+
+    <div style="margin-top: 90px;" class="content">
+      <div style="margin-bottom: 30px;">
+        <h2>Recomendados para você!</h2>
+        <div class="border"></div>
+      </div>
+      <div style="display: flex; flex-flow: row wrap; padding-bottom: 40px;">
+        <div  *ngFor="let product of recommended" style="display: flex;margin: auto; margin-top: 20px;">
+          <div style="position: relative; float:left; min-width:10px"></div>
+          <app-product-card [product]="product"></app-product-card>
+          <div style="position: relative; float:right;min-width:10px"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div>
+        <h2>Novidades da loja!</h2>
+        <div class="border"></div>
+      </div>
+      <div style="display: flex; flex-flow: row wrap;padding-bottom: 40px;">
+        <div  *ngFor="let product of news" style="display: flex;margin: auto; margin-top: 20px;">
+          <div style="position: relative; float:left; min-width:10px"></div>
+          <app-product-card [product]="product"></app-product-card>
+          <div style="position: relative; float:right;min-width:10px"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

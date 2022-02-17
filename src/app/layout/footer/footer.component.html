@@ -1,6 +1,74 @@
 <footer class="footer">
-  <div>
-    &copy; {{ data }} UTech
-    <span>v - 1.0</span>
+  <h2>UTECH STORE</h2>
+  <div class="middle">
+    <div class="middleContent">
+      <h3>Institucional</h3>
+      <div class="midContentLine" style="cursor: pointer;" (click)="navigate('info')">
+        <span>Sobre nós</span>
+      </div>
+      <div class="midContentLine" style="cursor: pointer;" (click)="navigate('info')">
+        <span>Dúvidas frequentes</span>
+      </div>
+      <div class="midContentLine" style="cursor: pointer;" (click)="navigate('info')">
+        <span>Deixe sua sugestão</span>
+      </div>
+      <div class="midContentLine" style="cursor: pointer;" (click)="navigate('info')">
+        <span>Política de privacidade</span>
+      </div>
+      <div class="midContentLine" style="cursor: pointer;" (click)="navigate('info')">
+        <span>Termos de serviço</span>
+      </div>
+    </div>
+    <span *ngIf="innerWidth > 850" class="spacer"></span>
+    <div class="middleContent">
+      <h3>Contato</h3>
+      <div class="midContentLine">
+        <mat-icon>access_time</mat-icon>
+        <span>Atendimento de segunda a sexta de 9 às 18h.</span>
+      </div>
+      <div class="midContentLine">
+        <mat-icon>email</mat-icon>
+        <span>utechstore.contato@gmail.com</span>
+      </div>
+      <div class="midContentLine">
+        <a href="https://web.whatsapp.com/" target="_blank">
+          <img src="assets/social/wpp.png"  class="image" />
+          <span>(061) 98527-0234</span>
+        </a>
+      </div>
+      <div class="midContentLine">
+        <a href="https://www.instagram.com/utechstore_/" target="_blank">
+          <img src="assets/social/insta.png"  class="image" />
+          <span>@utechstore_</span>
+        </a>
+      </div>
+      <div class="midContentLine">
+        <a href="https://www.facebook.com/" target="_blank">
+          <img src="assets/social/fb.png" class="image"/>
+          <span>/utechstoreoficial</span>
+        </a>
+      </div>
+    </div>
+    <span *ngIf="innerWidth > 850" class="spacer"></span>
+    <div class="middleContent">
+      <h3>Pagamento</h3>
+      <div >
+        <div class="midContentLine">
+          <mat-icon>payment</mat-icon>
+          <span>Até 10x no cartão s/ juros</span>
+        </div>
+        <span>inserir bandeiras dos cartoes aqui</span>
+      </div>
+      <div class="midContentLine">
+        <mat-icon>payment</mat-icon>
+        <span>Até 5% de desconto no boleto</span>
+      </div>
+    </div>
+    <span *ngIf="innerWidth > 850" class="spacer"></span>
+    <div class="middleContent">
+      <h3>Segurança</h3>
+      <span>inserir selos de segurança aqui</span>
+    </div>
   </div>
+  <span style="padding: 10px;"> &copy; {{ data }} UTech Store v-1.0</span>
 </footer>

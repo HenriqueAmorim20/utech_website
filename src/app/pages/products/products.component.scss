@@ -1,0 +1,102 @@
+.main {
+  display: flex;
+  background-color: transparent;
+}
+
+.leftDiv {
+  min-width: 250px;
+  min-height: 615px;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: rgba(45, 45, 45, 0.85);
+  color: white;
+  height: fit-content;
+}
+
+ul {
+  height: 100%;
+  width: 100%;
+  margin-left: -30px;
+}
+
+.item {
+  display: flex;
+  font-size: 19px;
+  padding: 30px ;
+  padding-left: 40px;
+  padding-right: 40px;
+  cursor: pointer;
+  list-style: none;
+  transition: 0.7s all ease;
+}
+
+.item:hover {
+  transition: 0.7s all ease;
+  font-size: 22px;
+  color: #00aeff;
+}
+
+.selected {
+  display: flex;
+  padding: 30px ;
+  padding-left: 40px;
+  padding-right: 40px;
+  list-style: none;
+  transition: 0.7s all ease;
+  cursor: default !important;
+  font-size: 22px;
+  color: #00aeff;
+}
+
+.rightDiv {
+  width: 100%;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  background-color: rgba(255, 255, 255, 0.701);
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  background-color:rgba(45, 45, 45, 0.5);
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.bottom {
+  display: flex;
+  flex-flow: row wrap;
+  min-height: 510px;
+  margin: 10px;
+  background-color: rgba(255, 255, 255, 0.65);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+
+::ng-deep .mat-tab-group {
+  background-color: rgba(45, 45, 45, 0.247);
+}
+
+::ng-deep .mat-tab-label {
+  color: white;
+  font-weight: bolder;
+  font-size: 16px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+::ng-deep .mat-ink-bar {
+  background-color: white !important;
+}
+

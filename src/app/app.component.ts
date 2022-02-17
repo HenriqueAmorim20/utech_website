@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'utech-front';
+  innerWidth: any;
+  constructor(private meta: Meta){}
+
+  ngOnInit(){
+    this.meta.addTag({name: "viewport", content:"width=device-width, initial-scale=1.0"})
+    this.innerWidth = window.innerWidth
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+  this.innerWidth = event.target.innerWidth;
+  }
+
 }

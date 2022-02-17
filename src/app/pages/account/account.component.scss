@@ -1,0 +1,102 @@
+.main {
+  background-color: transparent;
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.content {
+  display: table;
+  flex: 1 0 240px;
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 20px;
+  border-radius: 10px;
+  margin: min(20px, 100%);
+  width: 100%;
+  max-width: auto;
+}
+
+h2 {
+  color: #3288af;
+}
+
+h2, span, h3 {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  // margin-bottom: 30px;
+}
+
+.border {
+  width: 35px;
+  height: 3px;
+  margin-top: -20px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+  background-color: #3288af;;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.raise:hover,
+.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
+
+$colors: (
+  raise: black,
+);
+
+@each $button, $color in $colors {
+  .#{$button} {
+    --color: #{$color};
+    --hover: #{adjust-hue($color, 45deg)};
+  }
+}
+
+button {
+  color: var(--color);
+  transition: 0.25s;
+
+  &:hover,
+  &:focus {
+    border-color: #3288af;
+    color: #3288af;
+  }
+}
+
+button {
+  bottom: 0;
+  cursor: pointer;
+  outline: none;
+  background: none;
+  border: 0.8px solid;
+  border-radius: 10px;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 150px;
+}
+
+.backbtn{
+  cursor: pointer;
+}
+
+.backbtn:hover {
+  color: #3288af;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent {
+  .mat-checkbox-background {
+      background-color: #3288af;
+   }
+}
+

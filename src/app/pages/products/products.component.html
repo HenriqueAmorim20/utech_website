@@ -1,0 +1,56 @@
+<div class="main" [@fade]="'in'">
+
+  <div *ngIf="innerWidth > 850" class="leftDiv">
+    <ul>
+      <li *ngFor="let category of categories" (click)="setCategory(category)"  [ngClass]="{'selected': getSelected(category), 'item': !getSelected(category)}">
+        <span>{{category}}</span>
+        <span class="spacer"></span>
+        <mat-icon *ngIf="selected===category" style="color: #00aeff;">arrow_right_alt</mat-icon>
+      </li>
+    </ul>
+  </div>
+
+  <div class="rightDiv">
+    <div class="top" *ngIf="innerWidth < 851">
+      <div style="background-color: rgba(0, 0, 0, 0.815); border-radius: 5px; padding-top: 5px; padding-bottom: 5px; margin-right: 10px;">
+        <span style="padding: 10px; color:white;">Categoria:</span>
+      </div>
+      <mat-form-field style="width: 100%; margin-left: 5px;">
+        <mat-label>Selecione uma categoria</mat-label>
+        <select matNativeControl (change)="setCategory(selectedCategory)" [(ngModel)]="selectedCategory">
+          <option selected value="PCs">PCs</option>
+          <option value="SmartWatch">SmartWatch</option>
+          <option value="SmartPhone">SmartPhone</option>
+          <option value="Periféricos">Periféricos</option>
+          <option value="Ipads">Ipads</option>
+          <option value="SSDs e HDs">SSDs e HDs</option>
+        </select>
+      </mat-form-field>
+    </div>
+
+
+    <div class="top">
+      <div style="background-color: rgba(0, 0, 0, 0.815); border-radius: 5px; padding-top: 5px; padding-bottom: 5px; margin-right: 10px;">
+        <span style="padding: 10px; color:white;">Ordenar:</span>
+      </div>
+      <mat-form-field style="width: 100%; margin-left: 5px;">
+        <mat-label>Padrão</mat-label>
+        <select matNativeControl  (change)="setCategory()" [(ngModel)]="sort">
+          <option value="a-z">Nome de A-Z</option>
+          <option value="z-a">Nome de Z-A</option>
+          <option value="priceLower">Preço (menor para maior)</option>
+          <option value="priceHigher">Preço (maior para menor)</option>
+        </select>
+      </mat-form-field>
+    </div>
+
+    <div class="bottom">
+      <div  *ngFor="let product of products" style="display: flex;margin: auto; margin-bottom: 20px;">
+        <div style="position: relative; float:left; min-width:10px"></div>
+        <app-product-card [product]="product"></app-product-card>
+        <div style="position: relative; float:right;min-width:10px"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
